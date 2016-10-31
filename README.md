@@ -7,7 +7,7 @@
     <li>&#10003;Make sure everyone can access this GitHub Repository</li>
     <li>&#10003;Confirm the theme of our project (SmartHome App)</li>
     <li>&#10003;Assign an activity to each member</li>
-    <li>Let's start working on our activity!</li>
+    <li><b>Let's start working on our activity!</b></li>
 
    
   </ul>
@@ -18,6 +18,5 @@
    <li>Carlos - Kitchen</li>
   <li>Yu - house setting</li>
   <li>James -  Automobile</li>
- ttt
 </ul>
 
