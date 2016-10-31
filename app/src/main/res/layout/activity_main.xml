@@ -25,4 +25,9 @@
         android:layout_height="wrap_content"
         android:text="Greetings from Carlos"
         android:layout_alignParentTop="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Greetings from Bryan"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>
