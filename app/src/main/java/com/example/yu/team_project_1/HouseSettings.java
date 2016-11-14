@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class HouseSettings extends AppCompatActivity {
     String[] houseSettingMenu= {"Garage","House Temperature","Weather"};

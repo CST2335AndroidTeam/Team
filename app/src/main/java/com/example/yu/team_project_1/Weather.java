@@ -28,8 +28,8 @@ import java.util.StringTokenizer;
 public class Weather extends AppCompatActivity {
 
     TextView temp;
-    TextView tempMin;
-    TextView tempMax;
+    TextView humi;
+    TextView wind;
     ImageView weatherImage;
     public static final String LOCAL_IMAGE = "local";
     public static final String DOWNLOAD_IMAGE = "download";
@@ -41,8 +41,8 @@ public class Weather extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
         temp = (TextView)findViewById(R.id.temp_textView);
-        tempMin = (TextView)findViewById(R.id.temp_min_textView);
-        tempMax = (TextView)findViewById(R.id.temp_max_textView);
+        humi = (TextView)findViewById(R.id.humidity_textView) ;
+        wind = (TextView)findViewById(R.id.wind_textView);
         weatherImage = (ImageView) findViewById(R.id.weather_imageView);
 
         String weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=d99666875e0e51521f0040a3d97d0f6a&mode=xml&units=metric";
@@ -74,9 +74,9 @@ public class Weather extends AppCompatActivity {
 
 
         String temperatureText=null;
-        String temMinText =null;
-        String temMaxText =null;
         String iconName = null;
+        String humidityText = null;
+        String windText = null;
         Bitmap image;
 
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
@@ -112,10 +112,14 @@ public class Weather extends AppCompatActivity {
                             temperatureText = parser.getAttributeValue(null, "value");
                             SystemClock.sleep(1000);
                             publishProgress(25);
-                            temMinText = parser.getAttributeValue(null,"min");
+                        }
+                        if(name.equals("humidity")){
+                            humidityText = parser.getAttributeValue(null,"value");
                             SystemClock.sleep(1000);
                             publishProgress(50);
-                            temMaxText = parser.getAttributeValue(null,"max");
+                        }
+                        if(name.equals("speed")){
+                            windText = parser.getAttributeValue(null,"value");
                             SystemClock.sleep(1000);
                             publishProgress(75);
                         }
@@ -160,7 +164,7 @@ public class Weather extends AppCompatActivity {
                 } catch ( XmlPullParserException ex ){
                     return null;
                 }
-                return (temperatureText +" " +temMinText+" " + temMaxText);
+                return (temperatureText +" "+ humidityText + " "+windText);
 
             }catch (IOException ioe){
                 Log.i("IOException"," 1231231231");
@@ -183,8 +187,8 @@ public class Weather extends AppCompatActivity {
             StringTokenizer temInfor = new StringTokenizer(result);
 
             temp.setText( temInfor.nextElement() + " \u2103");
-            tempMin.setText("Minimum temperature = "+ temInfor.nextElement() +" \u2103");
-            tempMax.setText("Maximum temperature = "+ temInfor.nextElement() +" \u2103");
+            humi.setText("Humidity = "+ temInfor.nextElement() + " %");
+            wind.setText("Wind = "+temInfor.nextElement()+" km/h");
             weatherImage.setImageBitmap(image);
             progressBar.setVisibility(View.INVISIBLE);
         }

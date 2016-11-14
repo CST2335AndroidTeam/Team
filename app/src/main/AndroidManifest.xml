@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".HouseSettings"></activity>
         <activity android:name=".Weather" android:label="weather"></activity>
+
+
     </application>
 
 </manifest>

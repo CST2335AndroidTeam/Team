@@ -3,9 +3,9 @@
     <string name="house_button">House Settings</string>
 
     <string name="temperature">Temperature</string>
-    <string name="temperature_min">Min</string>
-    <string name="temperature_max">Max</string>
     <string name="image_description">Image information</string>
+    <string name="humidity_textView">Humidity</string>
+    <string name="wind_textView">Wind speed</string>
 
 
 </resources>
