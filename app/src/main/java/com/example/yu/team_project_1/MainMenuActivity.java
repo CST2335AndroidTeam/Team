@@ -39,14 +39,14 @@ public class MainMenuActivity extends AppCompatActivity {
         house_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentHouse= new Intent(MainMenuActivity.this, HouseSettings.class);
+                Intent intentHouse= new Intent(MainMenuActivity.this, HouseSettingMain.class);
                 startActivity(intentHouse);
             }
         });
     }
 
     public boolean onCreateOptionsMenu (Menu m){
-        getMenuInflater().inflate(R.menu.toolbar,m);
+        getMenuInflater().inflate(R.menu.maintoolbar,m);
         return true;
     }
 
@@ -54,17 +54,13 @@ public class MainMenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem mi){
         int id = mi.getItemId();
         switch(id){
-            case R.id.item1:
-                //TODO: Developing Custom Themes
-                Log.d(TOOLBAR_MESSAGE,"Item1 is selected");
+            case R.id.c1:
+                //TODO: information about 4 parts of app
+                Log.d(TOOLBAR_MESSAGE,"information is selected");
 
                 break;
-            case R.id.item2:
-                //TODO: Setting device vibrate
-                Log.d(TOOLBAR_MESSAGE,"Item2 is selected");
 
-                break;
-            case R.id.item4:
+            case R.id.c2:
                 //TODO: Display team information
                 Log.d(TOOLBAR_MESSAGE,"Item4 is selected");
                 Toast toast3 = Toast.makeText(MainMenuActivity.this , "Version 1.0, by Yu Wang", Toast.LENGTH_SHORT);

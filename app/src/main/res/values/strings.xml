@@ -7,8 +7,12 @@
     <string name="humidity_textView">Humidity</string>
     <string name="wind_textView">Wind speed</string>
     <string name="title_activity_main_tool_bar">MainToolBar</string>
-    <string name="title_activity_topbar">Topbar</string>
     <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_house_setting_main">House Settings</string>
+    <string name="garage_door">Garage Door</string>
+    <string name= "light">Light </string>
+
+    <string name="about">About us</string>
 
 
 </resources>
