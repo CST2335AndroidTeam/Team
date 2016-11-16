@@ -6,6 +6,9 @@
     <string name="image_description">Image information</string>
     <string name="humidity_textView">Humidity</string>
     <string name="wind_textView">Wind speed</string>
+    <string name="title_activity_main_tool_bar">MainToolBar</string>
+    <string name="title_activity_topbar">Topbar</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
 
 
 </resources>
