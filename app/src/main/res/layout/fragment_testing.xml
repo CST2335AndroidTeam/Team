@@ -1,0 +1,45 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drive_fragment"
+    tools:context="com.example.yu.team_project_1.TestingFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        >
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter km"
+            android:layout_weight="100"
+            android:layout_gravity="center"
+            android:inputType="number"
+            style="@style/Widget.AppCompat.EditText"
+            android:textSize="30sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_km_button"
+            android:text="Add to Odometer"
+            android:layout_weight="100"
+            android:layout_gravity="center"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
