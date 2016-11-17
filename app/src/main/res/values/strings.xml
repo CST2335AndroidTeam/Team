@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Team_project_1</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">How long have you drived?</string>
     <string name="app_name">YM Smart Home</string>
