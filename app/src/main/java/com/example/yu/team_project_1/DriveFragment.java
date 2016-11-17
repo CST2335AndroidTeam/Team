@@ -1,7 +1,5 @@
 package com.example.yu.team_project_1;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,11 +10,11 @@ import android.widget.Toast;
 
 
 
-public class TestingFragment extends Fragment {
+public class DriveFragment extends Fragment {
 
     private Button addKmButton;
 
-    public TestingFragment() {
+    public DriveFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +27,7 @@ public class TestingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_testing, container, false);
+        View view = inflater.inflate(R.layout.fragment_drive, container, false);
         addKmButton = (Button) view.findViewById(R.id.add_km_button);
         addKmButton.setOnClickListener(new View.OnClickListener() {
             @Override

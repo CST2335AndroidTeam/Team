@@ -10,7 +10,7 @@ public class DriveDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drive_detail);
 
-        final TestingFragment driveFragment = new TestingFragment();
+        final DriveFragment driveFragment = new DriveFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, driveFragment).commit();
 
 
