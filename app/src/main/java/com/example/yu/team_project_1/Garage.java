@@ -30,7 +30,7 @@ public class Garage extends AppCompatActivity {
 
                 }else{
                     text = "Garage door is closed ";
-                    duration = Toast.LENGTH_LONG;
+                    duration = Toast.LENGTH_SHORT;
                     light.setChecked(false);
                 }
                 Toast toast = Toast.makeText(Garage.this , text, duration);
