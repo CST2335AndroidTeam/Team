@@ -103,7 +103,7 @@ public class AutomobileMainActivity extends AppCompatActivity {
                     imageid = R.drawable.temperature;
                     break;
                 case FUEL:
-                    imageid = R.drawable.gas;
+                    imageid = R.drawable.fuel;
                     break;
                 case RADIO:
                     imageid = R.drawable.radio;
