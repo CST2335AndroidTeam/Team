@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:contentDescription="@string/image_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_alignParentStart="true"
+        android:id="@+id/house_menu_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:layout_marginStart="35dp"
+        android:layout_toRightOf="@+id/house_menu_image"
+        android:layout_alignParentEnd="true"
+        android:id = "@+id/house_menu_text"/>
+
+</RelativeLayout>
