@@ -77,6 +77,7 @@ public class HouseSettingMain extends AppCompatActivity {
                 //TODO: Developing Custom Themes
                 Log.d(SETTING_MESSAGE,"Item1 is selected");
 
+
                 break;
             case R.id.item2:
                 //TODO: Setting device vibrate
