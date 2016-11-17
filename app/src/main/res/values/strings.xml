@@ -1,6 +1,20 @@
 <resources>
-    <string name="app_name">Team_project_1</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">How long have you drived?</string>
+    <string name="app_name">YM Smart Home</string>
+    <string name="house_button">House Settings</string>
+
+    <string name="temperature">Temperature</string>
+    <string name="image_description">Image information</string>
+    <string name="humidity_textView">Humidity</string>
+    <string name="wind_textView">Wind speed</string>
+    <string name="title_activity_main_tool_bar">MainToolBar</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_house_setting_main">House Settings</string>
+    <string name="garage_door">Garage Door</string>
+    <string name= "light">Light </string>
+
+    <string name="about">About us</string>
+
+
 </resources>
