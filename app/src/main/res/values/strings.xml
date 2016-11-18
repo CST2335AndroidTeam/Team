@@ -20,5 +20,10 @@
     <string name="cancel">Cancel</string>
     <string name="title_activity_house_temp">HouseTemp</string>
 
+    <string name="zero">0</string>
+    <string name="setTemp">Set House Temperature</string>
+    <string name="temp_display">0</string>
+    <string name="textDefault">Selected Number Display here</string>
+
 
 </resources>
