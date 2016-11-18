@@ -12,21 +12,22 @@
 
 
     <Switch
-        android:text="@string/light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/door"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="136dp"
-        android:id="@+id/light" />
-
-    <Switch
         android:text="@string/garage_door"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="41dp"
         android:id="@+id/door"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Switch
+        android:text="@string/light"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/light"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/door"
+        android:layout_alignStart="@+id/door" />
 </RelativeLayout>

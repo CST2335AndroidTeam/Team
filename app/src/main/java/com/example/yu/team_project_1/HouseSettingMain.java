@@ -65,6 +65,8 @@ public class HouseSettingMain extends AppCompatActivity {
                 }
                 if(i == 1){
                     //TODO : Temperature
+                    Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
+                    startActivityForResult(intentTemp,1);
                 }
                 if(i == 2){
                     Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
