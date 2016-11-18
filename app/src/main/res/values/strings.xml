@@ -24,6 +24,7 @@
     <string name="setTemp">Set House Temperature</string>
     <string name="temp_display">0</string>
     <string name="textDefault">Selected Number Display here</string>
+    <string name="title_activity_living__room">Living_Room</string>
 
 
 </resources>

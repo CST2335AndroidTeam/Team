@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
         livingRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
-                //start living room acitivty
+                startActivity(new Intent(MainActivity.this, Living_Room.class));
             }
         });
         kitchenButton= (Button) findViewById(R.id.kitchen_button);
