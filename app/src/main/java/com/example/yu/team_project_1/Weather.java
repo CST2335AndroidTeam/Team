@@ -184,11 +184,11 @@ public class Weather extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            StringTokenizer temInfor = new StringTokenizer(result);
+            String[] separated = result.split(" ");
 
-            temp.setText( temInfor.nextElement() + " \u2103");
-            humi.setText("Humidity = "+ temInfor.nextElement() + " %");
-            wind.setText("Wind = "+temInfor.nextElement()+" km/h");
+            temp.setText( (separated[0] + " \u2103"));
+            humi.setText("Humidity = "+ separated[1] + " %");
+            wind.setText("Wind = "+ separated[2]+" km/h");
             weatherImage.setImageBitmap(image);
             progressBar.setVisibility(View.INVISIBLE);
         }
