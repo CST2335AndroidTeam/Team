@@ -1,22 +1,31 @@
 package com.example.yu.team_project_1;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HouseTemp extends AppCompatActivity {
-    NumberPicker numberpicker;
-    TextView textview;
-    private static String MASSAGE ="Set House Temperature To: ";
+import static android.R.id.message;
+import static com.example.yu.team_project_1.R.string.set;
+
+public class HouseTemp extends AppCompatActivity{
+    TextView tempCur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +38,11 @@ public class HouseTemp extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Welcome to set temperature", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
-
-        numberpicker = (NumberPicker)findViewById(R.id.numberPicker1);
-        textview = (TextView)findViewById(R.id.textView1);
-        numberpicker.setMinValue(0);
-        numberpicker.setMaxValue(30);
-        numberpicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                textview.setText((MASSAGE + newVal + " \u2103"));
-            }
-        });
+        tempCur = (TextView)findViewById(R.id.cur_temp);
 
     }
     public boolean onCreateOptionsMenu (Menu m){
@@ -56,7 +55,35 @@ public class HouseTemp extends AppCompatActivity {
         int id = mi.getItemId();
         switch(id){
             case R.id.t1:
-                //TODO: Developing Custom Themes
+                //Set tempereture dialog
+                NumberPicker numberPicker = new NumberPicker(this);
+                numberPicker.setMaxValue(40);
+                numberPicker.setMinValue(0);
+                numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+                    @Override
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                        tempCur.setText((newVal + " \u2103"));
+                    }
+                });
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(this).setView(numberPicker);
+
+                builder2.setTitle("Set Temperature To")
+                        .setIcon(R.drawable.pig)
+                        .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User clicked OK button
+                                Intent resultIntent = new Intent(  );
+                                setResult(Activity.RESULT_OK, resultIntent);
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                                dialog.cancel();
+                            }
+                        });
+
+                builder2.create().show();
 
                 break;
             case R.id.t2:

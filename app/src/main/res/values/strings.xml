@@ -14,11 +14,12 @@
     <string name="garage_door">Garage Door</string>
     <string name="light">Light </string>
 
-    <string name="about">About us</string>
+    <string name="about">About </string>
 
     <string name="ok">Yes</string>
     <string name="cancel">Cancel</string>
-    <string name="title_activity_house_temp">HouseTemp</string>
+    <string name="set">Set</string>
+    <string name="title_activity_house_temp">House Temperature</string>
 
     <string name="zero">0</string>
     <string name="setTemp">Set House Temperature</string>
@@ -26,5 +27,7 @@
     <string name="textDefault">Selected Number Display here</string>
     <string name="title_activity_living__room">Living_Room</string>
 
+    <string name="temp_sub1">tempToolbarSub1</string>
+    <string name="temp_sub2">tempToolbarSub2</string>
 
 </resources>

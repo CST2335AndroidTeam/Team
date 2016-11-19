@@ -15,35 +15,17 @@
     tools:showIn="@layout/activity_house_temp">
 
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/textDefault"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center"/>
-
     <TextView
         android:text="@string/zero"
-        android:layout_width="59dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cur_temp"
         android:ems="10"
         android:textSize="50sp"
         android:gravity="center"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_alignStart="@+id/numberPicker1"
-        android:layout_marginTop="97dp" />
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

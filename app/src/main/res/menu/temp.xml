@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/t1"
-        android:title="Choice1"
+        android:title="@string/temp_sub1"
         android:icon="@drawable/tempsetting"
         android:orderInCategory="101"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/t2"
-        android:title="Choice2"
-        android:icon="@drawable/vibrate"
+        android:title="@string/temp_sub2"
+        android:icon="@drawable/camera"
         android:orderInCategory="202"
         app:showAsAction="always" />
 
