@@ -1,10 +1,13 @@
 package com.example.yu.team_project_1;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,9 +26,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class HouseSettingMain extends AppCompatActivity {
 
     private static String SETTING_MESSAGE ="House Setting Tool Bar";
+    private static String INFORMATION = "Information";
 
     String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
     protected ArrayList<String> menuItems = new ArrayList<>(Arrays.asList(houseSettingMenu));
@@ -52,29 +57,29 @@ public class HouseSettingMain extends AppCompatActivity {
         menuLists.setAdapter(adapter);
 
 
-
-        menuLists.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView adapterView, View view, int i, long l){
-                String items =(String)adapterView.getItemAtPosition(i);
-                Toast.makeText(view.getContext(),"Welcome to "+ items +"!",Toast.LENGTH_LONG).show();
-
-                if(i == 0){
-                    Intent intentGarage = new Intent(HouseSettingMain.this,Garage.class);
-                    startActivityForResult(intentGarage,2);
-                }
-                if(i == 1){
-                    //TODO : Temperature
-                    Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
-                    startActivityForResult(intentTemp,1);
-                }
-                if(i == 2){
-                    Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
-                    startActivity(intentWeather);
-                }
-
-            }
-        });
+//
+//        menuLists.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView adapterView, View view, int i, long l){
+//                String items =(String)adapterView.getItemAtPosition(i);
+//                Toast.makeText(view.getContext(),"Welcome to "+ items +"!",Toast.LENGTH_LONG).show();
+//
+//                if(i == 0){
+//                    Intent intentGarage = new Intent(HouseSettingMain.this,Garage.class);
+//                    startActivityForResult(intentGarage,2);
+//                }
+//                if(i == 1){
+//                    //TODO : Temperature
+//                    Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
+//                    startActivityForResult(intentTemp,1);
+//                }
+//                if(i == 2){
+//                    Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
+//                    startActivity(intentWeather);
+//                }
+//
+//            }
+//        });
 
     }
 
@@ -133,21 +138,44 @@ public class HouseSettingMain extends AppCompatActivity {
         int id = mi.getItemId();
         switch(id){
             case R.id.item1:
-                //TODO: Developing Custom Themes
-                Log.d(SETTING_MESSAGE,"Item1 is selected");
 
+                Intent intentGarage = new Intent(HouseSettingMain.this,Garage.class);
+                startActivityForResult(intentGarage,2);
 
                 break;
             case R.id.item2:
+                Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
+                startActivityForResult(intentTemp,1);
+
+                break;
+            case R.id.item3:
+
+                Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
+                startActivity(intentWeather);
+
+                break;
+            case R.id.item4:
                 //TODO: Setting device vibrate
                 Log.d(SETTING_MESSAGE,"Item2 is selected");
 
                 break;
-            case R.id.item4:
+            case R.id.item5:
                 //TODO: Display team information
-                Log.d(SETTING_MESSAGE,"Item4 is selected");
-                Toast toast3 = Toast.makeText(HouseSettingMain.this , "Version 1.0, by Yu Wang", Toast.LENGTH_SHORT);
-                toast3.show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(INFORMATION);
+                // Add the buttons
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+                //TODO: add more information to this set message about how to use this interface
+                builder.setMessage("Author: Yu Wang\nVersion: 2.2.2\nInstruction: House Setting interface include the list of garage, house" +
+                        "temperature, and weather;\n");
+
+                // Create the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 break;
         }
         return true;

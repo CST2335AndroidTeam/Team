@@ -29,5 +29,7 @@
 
     <string name="temp_sub1">tempToolbarSub1</string>
     <string name="temp_sub2">tempToolbarSub2</string>
+    <string name="weather">weather</string>
+    <string name="vibrate">vibrate</string>
 
 </resources>
