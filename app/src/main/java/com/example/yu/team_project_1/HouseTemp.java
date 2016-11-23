@@ -2,8 +2,10 @@ package com.example.yu.team_project_1;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,11 +23,10 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.R.id.message;
-import static com.example.yu.team_project_1.R.string.set;
 
 public class HouseTemp extends AppCompatActivity{
     TextView tempCur;
+    private static String FILENAME ="FileName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,8 @@ public class HouseTemp extends AppCompatActivity{
                         .setAction("Action", null).show();
             }
         });
-        tempCur = (TextView)findViewById(R.id.cur_temp);
+
+
 
     }
     public boolean onCreateOptionsMenu (Menu m){
@@ -52,6 +54,7 @@ public class HouseTemp extends AppCompatActivity{
 
     //responds to one of the items being selected
     public boolean onOptionsItemSelected(MenuItem mi){
+        tempCur = (TextView)findViewById(R.id.cur_temp);
         int id = mi.getItemId();
         switch(id){
             case R.id.t1:
@@ -63,6 +66,11 @@ public class HouseTemp extends AppCompatActivity{
                     @Override
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                         tempCur.setText((newVal + " \u2103"));
+                        SharedPreferences pre = getSharedPreferences(FILENAME,Context.MODE_PRIVATE) ;
+                        SharedPreferences.Editor editor = pre.edit();
+                        editor.putString("Default",tempCur.getText().toString() );
+                        editor.commit();
+
                     }
                 });
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(this).setView(numberPicker);
@@ -87,18 +95,34 @@ public class HouseTemp extends AppCompatActivity{
 
                 break;
             case R.id.t2:
-                //TODO: Setting device vibrate
+                //TODO: take a photo
 
 
                 break;
-            case R.id.t3:
-                //TODO: Display team information
 
-                Toast toast3 = Toast.makeText(HouseTemp.this , "Version 1.0, by Yu Wang", Toast.LENGTH_SHORT);
+            case R.id.t3:
+
+                Snackbar.make(findViewById(R.id.toolbar), "Snack Bar use", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                break;
+            case R.id.t4:
+
+                Toast toast3 = Toast.makeText(HouseTemp.this , "Version 2.2.2 , by Yu Wang", Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        // save data to the context, think about Scanner(System.in)
+        SharedPreferences prs = getSharedPreferences(FILENAME, Context.MODE_PRIVATE);
+        tempCur = (TextView)findViewById(R.id.cur_temp);
+        String defaultTemp = prs.getString("Default", "20 \u2103");
+        tempCur.setText(defaultTemp);
     }
 
 
