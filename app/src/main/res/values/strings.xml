@@ -30,7 +30,21 @@
     <string name="temp_sub1">tempToolbarSub1</string>
     <string name="temp_sub2">tempToolbarSub2</string>
     <string name="temp_sub3">tempToolbarSub3</string>
+    <string name="temp_sub4">tempToolBarSub4</string>
     <string name="weather">weather</string>
     <string name="vibrate">vibrate</string>
+
+    <string name="displayDate">Date: </string>
+
+    <string name="dateDefault">1990/01/01</string>
+    <string name="changeDate">Set Date</string>
+    <string name="displayTime">Time: </string>
+    <string name="timeDefault">00:00</string>
+    <string name="changeTime">Set Time</string>
+    <string name="displayTemp">Temp: </string>
+    <string name="tempDefault">20</string>
+
+    <string name="changeTemp">Set Temp</string>
+
 
 </resources>

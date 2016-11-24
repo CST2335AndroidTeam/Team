@@ -41,7 +41,8 @@
         <activity
             android:name=".Living_Room"
             android:label="@string/title_activity_living__room"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ScheduleTimeTemp"></activity>
     </application>
 
 </manifest>

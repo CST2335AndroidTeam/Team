@@ -1,7 +1,6 @@
 package com.example.yu.team_project_1;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,13 +11,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -94,19 +89,26 @@ public class HouseTemp extends AppCompatActivity{
                 builder2.create().show();
 
                 break;
+
             case R.id.t2:
+
+                Intent intentSchedule = new Intent(this,ScheduleTimeTemp.class);
+                startActivity(intentSchedule);
+
+                break;
+            case R.id.t3:
                 //TODO: take a photo
 
 
                 break;
 
-            case R.id.t3:
+            case R.id.t4:
 
-                Snackbar.make(findViewById(R.id.toolbar), "Snack Bar use", Snackbar.LENGTH_LONG)
+                Snackbar.make(findViewById(R.id.toolbar), "Enjoying using our app", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 break;
-            case R.id.t4:
+            case R.id.t5:
 
                 Toast toast3 = Toast.makeText(HouseTemp.this , "Version 2.2.2 , by Yu Wang", Toast.LENGTH_SHORT);
                 toast3.show();
