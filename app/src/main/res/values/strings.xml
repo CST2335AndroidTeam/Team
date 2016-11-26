@@ -45,6 +45,7 @@
     <string name="tempDefault">20</string>
 
     <string name="changeTemp">Set Temp</string>
-
+    <string name="confirm">Confirm</string>
+    <string name="dateTime">List</string>
 
 </resources>

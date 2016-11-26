@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:gravity="center"
-    android:id="@+id/layout1">
+    android:id="@+id/layout1"
+    android:weightSum="1">
+
     <TableLayout
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
+        android:layout_height="171dp"
+        android:layout_width="363dp"
         android:id="@+id/tableLayout1"
         android:layout_gravity="center">
 
@@ -101,5 +103,31 @@
                 android:layout_height="wrap_content" />
         </TableRow>
     </TableLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:layout_width="289dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/information"
+        android:enabled="false" />
+
+    <Button
+        android:text="@string/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm" />
+
+</LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/listOfSchedule"
+        android:layout_gravity="bottom"/>
+
 
 </LinearLayout>

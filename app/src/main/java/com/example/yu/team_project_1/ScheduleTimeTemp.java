@@ -6,19 +6,30 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -26,10 +37,21 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
     Button date;
     Button time;
     Button temp;
+    Button confirm;
 
     EditText dateDisplay;
     EditText timeDisplay;
-    EditText TempDisplay;
+    EditText tempDisplay;
+
+    EditText display;
+    ListView confirmInforList;
+
+    public static final String ACTIVITY_NAME = "Query";
+    public static final String COLUMN_COUNT = "Cursor\'s  column count= ";
+
+    SQLiteDatabase db;
+    Cursor cursor;
+    final ArrayList<String> list = new ArrayList<String>();
 
     private int mYear, mMonth, mDay, mHour, mMinute;
 
@@ -41,12 +63,72 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
         date = (Button)findViewById(R.id.changeDate);
         time = (Button)findViewById(R.id.changeTime);
         temp = (Button)findViewById(R.id.changeTemp);
+        confirm = (Button)findViewById(R.id.confirm);
+
         dateDisplay = (EditText)findViewById(R.id.displayDateText);
         timeDisplay = (EditText)findViewById(R.id.displayTimeText);
-        TempDisplay = (EditText)findViewById(R.id.displayTempText);
+        tempDisplay = (EditText)findViewById(R.id.displayTempText);
+        display = (EditText)findViewById(R.id.information) ;
 
         date.setOnClickListener(this);
         time.setOnClickListener(this);
+        temp.setOnClickListener(this);
+
+        confirmInforList = (ListView)findViewById(R.id.listOfSchedule);
+
+
+        final ScheduleDatabaseHelper scheduleDatabaseHelper = new ScheduleDatabaseHelper(this);
+        //readable
+        db = scheduleDatabaseHelper.getWritableDatabase();
+        String[] allColums = {ScheduleDatabaseHelper.KEY_ID,ScheduleDatabaseHelper.KEY_MESSAGE};
+        cursor = db.query(scheduleDatabaseHelper.TABLE_NAME,allColums,null,null,null,null,null);
+
+        Log.i(ACTIVITY_NAME,  COLUMN_COUNT+ cursor.getColumnCount() );
+        cursor.moveToFirst();
+        for(int i = 0; i < cursor.getCount(); i++){
+           // Log.i(ACTIVITY_NAME, SQL_MESSAGE + cursor.getString( cursor.getColumnIndex( scheduleDatabaseHelper.KEY_MESSAGE) ) );
+            list.add(cursor.getString( cursor.getColumnIndex( scheduleDatabaseHelper.KEY_MESSAGE)));
+            cursor.moveToNext();
+        }
+
+        class ScheduleAdapter extends ArrayAdapter<String> {
+            // ctx represents the current context, 0 is resource ID
+            public ScheduleAdapter(Context ctx) {
+                super(ctx, 0);
+            }
+            public int getCount(){
+                return list.size();
+            }
+            public String getItem(int position){
+                return list.get(position);
+            }
+
+            public View getView(int position, View convertView, ViewGroup parent){
+                LayoutInflater inflater = ScheduleTimeTemp.this.getLayoutInflater();
+                View result = inflater.inflate(R.layout.schedulelist, null);
+                TextView message = (TextView)result.findViewById(R.id.message_text);
+                message.setText(   getItem(position)  ); // get the string at position
+                return result;
+            }
+        }
+
+        final ScheduleAdapter sa = new ScheduleAdapter(this);
+        confirmInforList.setAdapter(sa);
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                list.add(display.getText().toString());
+                ContentValues cValues = new ContentValues();
+                cValues.put(scheduleDatabaseHelper.KEY_MESSAGE,display.getText().toString());
+                db.insert(scheduleDatabaseHelper.TABLE_NAME, "null",cValues);
+                //this restarts the process of getCount()/ getView()
+                sa.notifyDataSetChanged();
+                display.setText("");
+
+            }
+        });
+
     }
 
     @Override
@@ -69,7 +151,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                                               int monthOfYear, int dayOfMonth) {
 
                             dateDisplay.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
+                            display.setText(dateDisplay.getText().toString());
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
@@ -90,11 +172,11 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                                               int minute) {
 
                             timeDisplay.setText(hourOfDay + ":" + minute);
+                            display.setText(dateDisplay.getText().toString()+ " "+timeDisplay.getText().toString());
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
         }
-
         if (v == temp) {
 
             NumberPicker numberPicker = new NumberPicker(this);
@@ -103,7 +185,8 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
             numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                 @Override
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                    TempDisplay.setText((newVal + " \u2103"));
+                    tempDisplay.setText((newVal + " \u2103"));
+                    display.setText(dateDisplay.getText().toString()+" "+timeDisplay.getText().toString()+" "+ tempDisplay.getText().toString());
 
                 }
             });
@@ -127,8 +210,9 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
             builder2.create().show();
         }
-    }
 
+
+    }
 
 
 }
