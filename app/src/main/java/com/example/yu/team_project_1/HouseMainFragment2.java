@@ -3,9 +3,11 @@ package com.example.yu.team_project_1;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
  */
 public class HouseMainFragment2 extends Fragment {
 
+    TextView textTemperature;
     public HouseMainFragment2() {
         // Required empty public constructor
     }
@@ -23,13 +26,17 @@ public class HouseMainFragment2 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_house_main_fragment2, container, false);
+        View view = inflater.inflate(R.layout.fragment_house_main_fragment2, container, false);
+        textTemperature = (TextView)view.findViewById(R.id.TextTemperature);
+        textTemperature.setText(Html.fromHtml(getString(R.string.tempFragment)));
+        return view;
     }
 
     @Override

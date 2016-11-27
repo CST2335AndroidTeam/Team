@@ -1,5 +1,4 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,12 +8,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/tempFragment"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:background="@drawable/tempic"
+        android:id="@+id/TextTemperature"/>
 
-    <ImageView
+    <Button
+        android:text="@string/detail"
+        android:textColor="#3F51B5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/warmpic"
-        android:id="@+id/imageTemp" />
+        android:layout_height="wrap_content"
+        android:id="@+id/CheckTemp"
+        android:layout_gravity="bottom"/>
 
 </FrameLayout>
