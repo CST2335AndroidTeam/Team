@@ -16,10 +16,6 @@
         <activity
             android:name=".Weather"
             android:label="weather" />
-        <activity
-            android:name=".MainMenuActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,10 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".HouseSettingMain"
-            android:label="@string/title_activity_house_setting_main"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Garage" />
         <activity android:name=".AutomobileMainActivity" />
         <activity android:name=".DriveDetailActivity" />
@@ -42,7 +34,11 @@
             android:name=".Living_Room"
             android:label="@string/title_activity_living__room"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ScheduleTimeTemp"></activity>
+        <activity android:name=".ScheduleTimeTemp"
+            android:label="@string/schedule"/>
+        <activity android:name=".HouseMain"
+            android:label="@string/title_activity_house_main"/>
+
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@
         android:textAlignment="textStart"
         android:textSize="20sp"
         android:layout_marginStart="35dp"
-        android:layout_toRightOf="@+id/house_menu_image"
+        android:layout_toEndOf="@+id/house_menu_image"
         android:layout_alignParentEnd="true"
         android:id = "@+id/house_menu_text"/>
 

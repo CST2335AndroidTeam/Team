@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         houseSettingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HouseSettingMain.class));
+                startActivity(new Intent(MainActivity.this, HouseMain.class));
             }
         });
         automobileButton = (Button)findViewById(R.id.automobile_button);

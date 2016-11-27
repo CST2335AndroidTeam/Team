@@ -22,12 +22,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,6 +48,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
     EditText display;
     ListView confirmInforList;
+    Switch onOff;
 
     public static final String ACTIVITY_NAME = "Query";
     public static final String COLUMN_COUNT = "Cursor\'s  column count= ";
@@ -76,6 +80,9 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
         confirmInforList = (ListView)findViewById(R.id.listOfSchedule);
 
+        LayoutInflater inflater = ScheduleTimeTemp.this.getLayoutInflater();
+        View switchView = inflater.inflate(R.layout.schedulelist, null);
+        onOff = (Switch)switchView.findViewById(R.id.switchOn);
 
         final ScheduleDatabaseHelper scheduleDatabaseHelper = new ScheduleDatabaseHelper(this);
         //readable
@@ -214,5 +221,29 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        onOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                CharSequence text;
+                int duration;
+                if(isChecked){
+                    Log.i("message","RUN");
+                    text= "Switch is on";
+                    duration = Toast.LENGTH_SHORT;
+                }else{
+                    text = "Switch is Off";
+                    duration = Toast.LENGTH_LONG;
+                }
+                Toast toast = Toast.makeText(ScheduleTimeTemp.this , text, duration);
+                toast.show(); //display your message box
+
+            }
+        });
+    }
 
 }

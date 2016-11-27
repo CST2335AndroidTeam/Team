@@ -47,5 +47,13 @@
     <string name="changeTemp">Set Temp</string>
     <string name="confirm">Confirm</string>
     <string name="dateTime">List</string>
+    <string name="title_activity_house_main">House Setting Main</string>
+    <string name="schedule">Schedule Your House Temperature</string>
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
+
+    <string name="garageFragment">Introduction: Welcome to use Garage interface</string>
+    <string name="tempFragment">Introduction: Welcome to use House Temperature interface</string>
+    <string name="weatherFragment">Introduction: Welcome to use Weather interface</string>
 
 </resources>

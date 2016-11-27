@@ -1,16 +1,20 @@
 package com.example.yu.team_project_1;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.DrawableUtils;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,16 +25,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class HouseSettingMain extends AppCompatActivity {
-
-    private static String SETTING_MESSAGE ="House Setting Tool Bar";
+public class HouseMain extends AppCompatActivity {
     private static String INFORMATION = "Information";
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout drawerLayout;
+    private ListView navListView;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
+
 
     String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
     protected ArrayList<String> menuItems = new ArrayList<>(Arrays.asList(houseSettingMenu));
@@ -38,50 +45,54 @@ public class HouseSettingMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_house_setting_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_house_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        drawerLayout = (DrawerLayout)findViewById(R.id.houseMain_drawer);
+
+        navListView = (ListView)findViewById(R.id.navList);
+        HouseAdapter adapter = new HouseAdapter(this);
+        //only allow click one list item
+        navListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        fragmentManager =getSupportFragmentManager();
+
+
+        navListView.setAdapter(adapter);
+        navListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Welcome to YM Smart Home - house setting", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        HouseMainFragment1 garageFragment = new HouseMainFragment1();
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragmentHolder,garageFragment);
+                        fragmentTransaction.commit();
+                        break;
+                    case 1:
+                        HouseMainFragment2 tempFragment = new HouseMainFragment2();
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragmentHolder,tempFragment);
+                        fragmentTransaction.commit();
+                        break;
+                    case 2:
+                        HouseMainFragment3 weatherFragment = new HouseMainFragment3();
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragmentHolder,weatherFragment);
+                        fragmentTransaction.commit();
+                        break;
+                }
+                drawerLayout.closeDrawer(navListView);
             }
         });
 
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.openDrawer,R.string.closeDrawer);
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        ListView menuLists = (ListView)findViewById(R.id.house_setting_menu);
-        HouseAdapter adapter = new HouseAdapter(this);
-        menuLists.setAdapter(adapter);
-
-
-//
-//        menuLists.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView adapterView, View view, int i, long l){
-//                String items =(String)adapterView.getItemAtPosition(i);
-//                Toast.makeText(view.getContext(),"Welcome to "+ items +"!",Toast.LENGTH_LONG).show();
-//
-//                if(i == 0){
-//                    Intent intentGarage = new Intent(HouseSettingMain.this,Garage.class);
-//                    startActivityForResult(intentGarage,2);
-//                }
-//                if(i == 1){
-//                    //TODO : Temperature
-//                    Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
-//                    startActivityForResult(intentTemp,1);
-//                }
-//                if(i == 2){
-//                    Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
-//                    startActivity(intentWeather);
-//                }
-//
-//            }
-//        });
 
     }
+
 
     private class HouseAdapter extends ArrayAdapter<String> {
         HouseAdapter(Context ctx) {
@@ -100,19 +111,19 @@ public class HouseSettingMain extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = HouseSettingMain.this.getLayoutInflater();
+            LayoutInflater inflater = HouseMain.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.menu_list, null);
 
             int rowId = 0;
             switch (position) {
                 case 0:
-                    rowId = R.drawable.garage;
+                    rowId = R.drawable.garage2;
                     break;
                 case 1:
-                    rowId = R.drawable.temp;
+                    rowId = R.drawable.temp2;
                     break;
                 case 2:
-                    rowId = R.drawable.weather;
+                    rowId = R.drawable.weather2;
                     break;
 
             }
@@ -127,40 +138,51 @@ public class HouseSettingMain extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
+    @Override
     public boolean onCreateOptionsMenu (Menu m){
         getMenuInflater().inflate(R.menu.toolbar,m);
         return true;
     }
 
+    @Override
     //responds to one of the items being selected
     public boolean onOptionsItemSelected(MenuItem mi){
         int id = mi.getItemId();
         switch(id){
+            case android.R.id.home:
+                 if(drawerLayout.isDrawerOpen(navListView)){
+                     drawerLayout.closeDrawer(navListView);
+                 }else{
+                     drawerLayout.openDrawer(navListView);
+                 }
+                 break;
             case R.id.item1:
 
-                Intent intentGarage = new Intent(HouseSettingMain.this,Garage.class);
+                Intent intentGarage = new Intent(HouseMain.this,Garage.class);
                 startActivityForResult(intentGarage,2);
 
                 break;
             case R.id.item2:
-                Intent intentTemp = new Intent(HouseSettingMain.this,HouseTemp.class);
+                Intent intentTemp = new Intent(HouseMain.this,HouseTemp.class);
                 startActivityForResult(intentTemp,1);
 
                 break;
             case R.id.item3:
 
-                Intent intentWeather= new Intent(HouseSettingMain.this, Weather.class);
+                Intent intentWeather= new Intent(HouseMain.this, Weather.class);
                 startActivity(intentWeather);
 
                 break;
             case R.id.item4:
                 //TODO: Setting device vibrate
-                Log.d(SETTING_MESSAGE,"Item2 is selected");
 
                 break;
             case R.id.item5:
-                //TODO: Display team information
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(INFORMATION);
                 // Add the buttons

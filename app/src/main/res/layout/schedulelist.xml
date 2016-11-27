@@ -18,7 +18,7 @@
     <Switch
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/switch3"
+        android:id="@+id/switchOn"
         android:layout_weight="0.50" />
 
 
