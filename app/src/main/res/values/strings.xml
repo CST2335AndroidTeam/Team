@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Team_project_1</string>
+    <string name="carlos_app_name">Shopping List</string>
+    <string name="K_NewList">Start New List</string>
+    <string name="K_EditList">Edit Current List</string>
+    <string name="K_Shop">Let's Shop</string>
+    <string name="K_Exit">Exit</string>
+    <string name="K_MenuMsg">Enjoy your shopping</string>
 </resources>
