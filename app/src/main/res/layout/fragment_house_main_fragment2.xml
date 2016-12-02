@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:text="@string/tempFragment"
         android:textSize="25sp"
-        android:background="@drawable/tempic"
+        android:background="@drawable/back1"
         android:id="@+id/TextTemperature"/>
 
     <Button

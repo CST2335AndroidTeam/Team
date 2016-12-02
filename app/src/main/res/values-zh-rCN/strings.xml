@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello_blank_fragment">你驾驶多久了？</string>
+    <string name="app_name">YM 智能家居</string>
+    <string name="house_button">House设置按键</string>
+
+    <string name="temperature">温度</string>
+    <string name="image_description">图像信息</string>
+    <string name="humidity_textView">湿度</string>
+    <string name="wind_textView">风速</string>
+    <string name="title_activity_main_tool_bar">主要ToolBar</string>
+    <string name="title_activity_main_menu">主要menuActivity</string>
+    <string name="title_activity_house_setting_main">House 设置</string>
+    <string name="garage_door">车库门</string>
+    <string name="light">灯光</string>
+
+    <string name="about">关于</string>
+
+    <string name="ok">是</string>
+    <string name="cancel">取消</string>
+    <string name="set">确认</string>
+    <string name="title_activity_house_temp">内部温度</string>
+
+    <string name="zero">0</string>
+    <string name="setTemp">设置房屋温度</string>
+    <string name="temp_display">0</string>
+    <string name="textDefault">选号码显示在此处</string>
+    <string name="title_activity_living__room">客厅</string>
+
+    <string name="temp_sub1">tempToolbarSub1</string>
+    <string name="temp_sub2">tempToolbarSub2</string>
+    <string name="temp_sub3">tempToolbarSub3</string>
+    <string name="temp_sub4">tempToolBarSub4</string>
+    <string name="weather">天气</string>
+    <string name="vibrate">颤动</string>
+
+    <string name="displayDate">日期：</string>
+
+    <string name="dateDefault">1990/01/01</string>
+    <string name="changeDate">设置日期</string>
+    <string name="displayTime">时间: </string>
+    <string name="timeDefault">00:00</string>
+    <string name="changeTime">设置时间</string>
+    <string name="displayTemp">Temp: </string>
+    <string name="tempDefault">20</string>
+
+    <string name="changeTemp">设置温度</string>
+    <string name="confirm">确认</string>
+    <string name="dateTime">列表</string>
+    <string name="title_activity_house_main">设置房屋 Main</string>
+    <string name="schedule">设置你的房子温度</string>
+    <string name="openDrawer">打开</string>
+    <string name="closeDrawer">关闭</string>
+
+    <string name="garageFragment"><![CDATA[
+        <p><h2>欢迎使用Garage界面</h2></p>
+        <p>指示:</p>
+        <p>1) 客户可以检查工具栏房子温度图标到达控制页面;</p>
+        <p>2)在控制页面中，客户可以打开/关闭车库门并打开/关闭灯光。
+         此外，打开车库门将自动打开灯</p>
+        ]]> </string>
+    <string name="tempFragment"><![CDATA[
+        <p><h2>欢迎使用 House Temperature 界面</h2></p>
+        <p>指示:</p>
+        <p>1)客户可以检查工具栏房子温度图标到达控制页面;</p>
+        <p>2)在控制页面中，客户可以更改房间温度，并且此温度被存储，直到下一次打开应用程序;
+         此外，客户可以通过在标签日历图标时添加时间/温度设置来创建计划</p>
+        ]]></string>
+    <string name="weatherFragment"><![CDATA[
+        <p><h2> 欢迎使用 Weather 界面e</h2></p>
+        <p>指示:</p>
+        <p>1) 客户可以通过工具栏的房子温度图标到达控制页面;;</p>
+        <p>2) 在控制页面，显示当前温度.</p>
+        ]]></string>
+    <string name="detail">详情</string>
+</resources>

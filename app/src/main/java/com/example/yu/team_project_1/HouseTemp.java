@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -14,17 +16,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 
 public class HouseTemp extends AppCompatActivity{
     TextView tempCur;
     private static String FILENAME ="FileName";
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    ImageView picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,6 @@ public class HouseTemp extends AppCompatActivity{
                         .setAction("Action", null).show();
             }
         });
-
 
 
     }
@@ -100,9 +102,11 @@ public class HouseTemp extends AppCompatActivity{
 
                 break;
             case R.id.t3:
-                //TODO: take a photo
-
-
+                // invokes an intent to capture a photo
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
                 break;
 
             case R.id.t4:
@@ -128,6 +132,19 @@ public class HouseTemp extends AppCompatActivity{
         tempCur = (TextView)findViewById(R.id.cur_temp);
         String defaultTemp = prs.getString("Default", "20 \u2103");
         tempCur.setText(defaultTemp);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // replace the button's image with your new picture
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            picture = (ImageView)findViewById(R.id.imagePicture);
+            picture.setImageBitmap(imageBitmap);
+
+        }
     }
 
 

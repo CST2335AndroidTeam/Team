@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">How long have you drived?</string>
     <string name="app_name">YM Smart Home</string>
     <string name="house_button">House Settings</string>
@@ -55,25 +54,22 @@
     <string name="garageFragment"><![CDATA[
         <p><h2>Welcome to use Garage interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the bottom "Detail" button to control garage door and light
-        or check the toolbar house garage icon to reach control page;</p>
+        <p>1) Customer can check the toolbar house garage icon to reach control page;</p>
         <p>2) In the control page, customer is allowed to open/close the garage door and turn on/off the light.
         Also, opening the garage door will turn on the light automatically.</p>
         ]]> </string>
     <string name="tempFragment"><![CDATA[
         <p><h2> Welcome to use House Temperature interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the bottom "Detail" button to control house temperature
-        or check the toolbar house temperature icon to reach control page;</p>
+        <p>1) Customer can check the toolbar house temperature icon to reach control page;</p>
         <p>2) In control page, customer is allowed to change house temperature and this temperature is stored till next time open the app;
         Also, customer is allowed to create a schedule by adding time/temperature settings when tab the calender icon.</p>
         ]]></string>
     <string name="weatherFragment"><![CDATA[
         <p><h2> Welcome to use Weather interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the bottom "Detail" button to check current weather
-        or check the toolbar house temperature icon to reach control page;</p>
-        <p>2) In control page, display the current temperature outside.</p>
+        <p>1) Customer can check the toolbar house temperature icon to reach control page;</p>
+        <p>2) In control page, display the current outside temperature.</p>
         ]]></string>
     <string name="detail">Detail</string>
 </resources>

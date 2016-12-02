@@ -191,9 +191,12 @@ public class HouseMain extends AppCompatActivity {
                         // User clicked OK button
                     }
                 });
-                //TODO: add more information to this set message about how to use this interface
-                builder.setMessage("Author: Yu Wang\nVersion: 2.2.2\nInstruction: House Setting interface include the list of garage, house" +
-                        "temperature, and weather;\n");
+                builder.setMessage("Author: Yu Wang\nVersion: 2.2.2\nInstruction: House Setting interface includes the list of garage, house temperature, and weather;" +
+                        "\nIn the garage control page, you are allowed to open/close the garage door and turn on/off the light." +
+                        "Also, opening the garage door will turn on the light automatically." +
+                        "\nIn house temperature control page, you are allowed to change house temperature and this temperature is stored till next time open the app;" +
+                        "Also, customer is allowed to create a schedule by adding time/temperature settings when tab the calender icon." +
+                        "\nIn weather control page, it will display the current outside temperature.");
 
                 // Create the AlertDialog
                 AlertDialog dialog = builder.create();

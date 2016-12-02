@@ -21,11 +21,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/cur_temp"
         android:ems="10"
-        android:textSize="50sp"
+        android:textSize="100sp"
         android:gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/gallery"
+        android:id="@+id/imagePicture"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
