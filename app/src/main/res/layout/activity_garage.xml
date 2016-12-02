@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_garage"
     android:layout_width="match_parent"
@@ -11,15 +12,21 @@
     tools:context="com.example.yu.team_project_1.Garage">
 
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        app:srcCompat="@drawable/garageclose"
+        android:id="@+id/garageClose" />
+
     <Switch
         android:text="@string/garage_door"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
         android:id="@+id/door"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/garageClose"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
     <Switch
         android:text="@string/light"
@@ -27,7 +34,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/light"
-        android:layout_marginTop="31dp"
         android:layout_below="@+id/door"
-        android:layout_alignStart="@+id/door" />
+        android:layout_alignStart="@+id/door"
+        android:layout_marginTop="19dp" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/brightSeekBar"
+        android:layout_alignTop="@+id/light"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="64dp"
+        android:max="200"
+        android:progress="50"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/insidegarage"
+        android:layout_below="@+id/brightSeekBar"
+        android:layout_alignStart="@+id/brightSeekBar"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/ad_banner_image_description"
+        android:gravity="bottom"
+        android:id="@+id/bright"
+        />
+
+
 </RelativeLayout>

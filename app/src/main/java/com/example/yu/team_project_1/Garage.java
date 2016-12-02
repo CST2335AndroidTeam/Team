@@ -1,23 +1,38 @@
 package com.example.yu.team_project_1;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.support.annotation.BoolRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import static android.R.attr.data;
+import static android.R.attr.duration;
+import static com.example.yu.team_project_1.R.id.bright;
 
 public class Garage extends AppCompatActivity {
     private Switch door;
     private Switch light;
     private static final String GARAGE_SETTING ="House Setting Tool Bar";
     public static final String DIALOG_TITLE = "Do you want to go back?";
+    ImageView garageClose;
+    ImageView lightControl;
+    SeekBar brightControl;
+    private static String FILENAME ="FIle";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +41,36 @@ public class Garage extends AppCompatActivity {
 
         door = (Switch)findViewById(R.id.door);
         light = (Switch)findViewById(R.id.light);
+        garageClose =(ImageView)findViewById(R.id.garageClose);
+        lightControl =(ImageView)findViewById(R.id.bright);
+        lightControl.setVisibility(View.INVISIBLE);
+        brightControl =(SeekBar)findViewById(R.id.brightSeekBar);
+        brightControl.setVisibility(View.INVISIBLE);
+
+        brightControl.setProgress(100);
+        lightControl.setImageAlpha(50);
+        brightControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                int alpha = 20+brightControl.getProgress();
+                lightControl.setImageAlpha(alpha);
+                SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+                SharedPreferences.Editor editor = pre.edit();
+                editor.putInt("ALPHA",alpha);
+                editor.commit();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         door.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -36,14 +81,34 @@ public class Garage extends AppCompatActivity {
                     text= "Garage door is opened";
                     duration = Toast.LENGTH_SHORT;
                     light.setChecked(true);
+                    garageClose.setImageResource(R.drawable.garageopen);
+                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    toast.show(); //display your message box
+                    lightControl.setVisibility(View.VISIBLE);
+                    brightControl.setVisibility(View.VISIBLE);
+                    SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+                    SharedPreferences.Editor editor = pre.edit();
+                    editor.putBoolean("YES",true);
+                    editor.commit();
 
-                }else{
+
+                }
+                if(!isChecked){
                     text = "Garage door is closed ";
                     duration = Toast.LENGTH_SHORT;
                     light.setChecked(false);
+                    garageClose.setImageResource(R.drawable.garageclose);
+                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    toast.show(); //display your message box
+
+                    lightControl.setVisibility(View.INVISIBLE);
+                    brightControl.setVisibility(View.INVISIBLE);
+                    SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+                    SharedPreferences.Editor editor = pre.edit();
+                    editor.putBoolean("YES",false);
+                    editor.commit();
                 }
-                Toast toast = Toast.makeText(Garage.this , text, duration);
-                toast.show(); //display your message box
+
 
             }
         });
@@ -53,20 +118,53 @@ public class Garage extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 CharSequence text;
                 int duration;
+
                 if(isChecked){
                     text= "Light is on";
                     duration = Toast.LENGTH_SHORT;
-
-                }else{
-                    text = "Light is off";
-                    duration = Toast.LENGTH_LONG;
+                    lightControl.setVisibility(View.VISIBLE);
+                    brightControl.setVisibility(View.VISIBLE);
+                    SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+                    SharedPreferences.Editor editor = pre.edit();
+                    editor.putBoolean("LIGHT",true);
+                    editor.commit();
+                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    toast.show();
 
                 }
-                Toast toast = Toast.makeText(Garage.this , text, duration);
-                toast.show(); //display your message box
+
+                if (!isChecked){
+                    text = "Light is off";
+                    duration = Toast.LENGTH_LONG;
+                    lightControl.setVisibility(View.INVISIBLE);
+                    brightControl.setVisibility(View.INVISIBLE);
+                    SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+                    SharedPreferences.Editor editor = pre.edit();
+                    editor.putBoolean("LIGHT",false);
+                    editor.commit();
+
+                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    toast.show();
+                }
+                //display your message box
 
             }
         });
+
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
+        Boolean a = pre.getBoolean("YES",false);
+        Boolean b = pre.getBoolean("LIGHT",false);
+        int n = pre.getInt("ALPHA",50);
+        door.setChecked(a);
+        light.setChecked(b);
+        brightControl.setProgress(n);
+        lightControl.setImageAlpha(n);
+
 
     }
 
@@ -108,9 +206,7 @@ public class Garage extends AppCompatActivity {
 
                 break;
             case R.id.g2:
-                //TODO: Display team information
-                Log.d(GARAGE_SETTING,"Item2 is selected");
-                Toast toast3 = Toast.makeText(Garage.this , "Version 1.0, by Yu Wang", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(Garage.this , "Version 2.2.2, by Yu Wang", Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
         }

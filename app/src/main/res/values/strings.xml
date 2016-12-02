@@ -72,4 +72,5 @@
         <p>2) In control page, display the current outside temperature.</p>
         ]]></string>
     <string name="detail">Detail</string>
+    <string name="ad_banner_image_description">light on picture</string>
 </resources>
