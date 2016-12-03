@@ -20,8 +20,8 @@
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/item4"
-        android:title="@string/vibrate"
-        android:icon="@drawable/vibrate"
+        android:title="@string/mainTheme"
+        android:icon="@drawable/theme"
         android:orderInCategory="402"
         app:showAsAction="always" />
 

@@ -33,7 +33,7 @@
     <string name="temp_sub3">tempToolbarSub3</string>
     <string name="temp_sub4">tempToolBarSub4</string>
     <string name="weather">天气</string>
-    <string name="vibrate">颤动</string>
+    <string name="theme">主题</string>
 
     <string name="displayDate">日期：</string>
 
@@ -57,15 +57,13 @@
         <p><h2>欢迎使用Garage界面</h2></p>
         <p>指示:</p>
         <p>1) 客户可以检查工具栏房子温度图标到达控制页面;</p>
-        <p>2)在控制页面中，客户可以打开/关闭车库门并打开/关闭灯光。
-         此外，打开车库门将自动打开灯</p>
+        <p>2)在控制页面中，客户可以打开/关闭车库门并打开/关闭灯光。此外，打开车库门将自动打开灯</p>
         ]]> </string>
     <string name="tempFragment"><![CDATA[
         <p><h2>欢迎使用 House Temperature 界面</h2></p>
         <p>指示:</p>
         <p>1)客户可以检查工具栏房子温度图标到达控制页面;</p>
-        <p>2)在控制页面中，客户可以更改房间温度，并且此温度被存储，直到下一次打开应用程序;
-         此外，客户可以通过在标签日历图标时添加时间/温度设置来创建计划</p>
+        <p>2)在控制页面中，客户可以更改房间温度，并且此温度被存储，直到下一次打开应用程序;此外，客户可以通过在标签日历图标时添加时间/温度设置来创建计划</p>
         ]]></string>
     <string name="weatherFragment"><![CDATA[
         <p><h2> 欢迎使用 Weather 界面e</h2></p>
@@ -74,4 +72,13 @@
         <p>2) 在控制页面，显示当前温度.</p>
         ]]></string>
     <string name="detail">详情</string>
+    <string name="ad_banner_image_description">图片描述</string>
+
+    <string name="Bryan">Bryan 客厅</string>
+    <string name="Carlos">Carlos 厨房</string>
+    <string name="Yu">Yu 房间设置</string>
+    <string name="James">James 汽车</string>
+
+
+
 </resources>

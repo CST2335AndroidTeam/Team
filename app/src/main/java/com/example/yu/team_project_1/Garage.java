@@ -53,7 +53,7 @@ public class Garage extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                int alpha = 20+brightControl.getProgress();
+                int alpha = 10+brightControl.getProgress();
                 lightControl.setImageAlpha(alpha);
                 SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
                 SharedPreferences.Editor editor = pre.edit();
