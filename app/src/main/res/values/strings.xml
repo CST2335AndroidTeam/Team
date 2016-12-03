@@ -76,4 +76,10 @@
     <string name="Carlos">Carlos Kitchen</string>
     <string name="Yu">Yu House Setting</string>
     <string name="James">James Automobile</string>
+
+    <string-array name="themelist">
+        <item>Normal</item>
+        <item>Console</item>
+        <item>Navy</item>
+    </string-array>
 </resources>

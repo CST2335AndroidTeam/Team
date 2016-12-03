@@ -79,6 +79,11 @@
     <string name="Yu">Yu 房间设置</string>
     <string name="James">James 汽车</string>
 
+    <string-array name="themelist">
+        <item>默认主题</item>
+        <item>绿色主题</item>
+        <item>蓝色主题</item>
+    </string-array>
 
 
 </resources>

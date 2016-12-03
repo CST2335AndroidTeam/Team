@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,11 +29,15 @@ import java.util.Arrays;
 
 public class HouseMain extends AppCompatActivity {
     private static String INFORMATION = "Information";
+    private static String themeSetting="Set your theme";
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private DrawerLayout drawerLayout;
     private ListView navListView;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+    private Spinner themeSpinner;
+    private ArrayAdapter<String> themeAdapter;
+
 
 
     String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
@@ -175,8 +180,36 @@ public class HouseMain extends AppCompatActivity {
 
                 break;
             case R.id.item4:
-                //TODO: Setting device theme
 
+                AlertDialog.Builder b = new AlertDialog.Builder(this);
+                View dView = getLayoutInflater().inflate(R.layout.themedialog,null);
+                b.setTitle(themeSetting);
+                themeSpinner = (Spinner)dView.findViewById(R.id.themeSpinner);
+                themeAdapter = new ArrayAdapter<>(HouseMain.this,android.R.layout.simple_spinner_item,getResources().getStringArray(R.array.themelist));
+                themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                themeSpinner.setAdapter(themeAdapter);
+                b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(themeSpinner.getSelectedItem().toString().equals("Console")){
+                            navListView.setBackgroundResource(R.drawable.concole);
+                        }else if(themeSpinner.getSelectedItem().toString().equals("Navy")){
+                            navListView.setBackgroundResource(R.drawable.navy);
+                        }else if(themeSpinner.getSelectedItem().toString().equals("Normal")){
+                            navListView.setBackgroundResource(R.drawable.normal);
+                        }
+
+
+                    }
+                });
+                b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                b.setView(dView);
+                b.create().show();
                 break;
             case R.id.item5:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
