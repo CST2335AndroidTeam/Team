@@ -10,12 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * This class is an activity of main page interface, it includes top toolbar of team information
+ * and 4 buttons of living room, house setting, kitchen and automobile
+ */
 public class MainActivity extends AppCompatActivity {
     private Button livingRoomButton;
     private Button kitchenButton;
     private Button houseSettingButton;
     private Button automobileButton;
-    private static String Group ="Team Project Information";
+    private static String Group ="YM smart home -- Team Project Information";
 
 
     @Override
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(Group);
             // Add the buttons
-            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     // User clicked OK button
                 }

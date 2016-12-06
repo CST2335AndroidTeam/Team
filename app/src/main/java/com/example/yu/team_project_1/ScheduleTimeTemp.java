@@ -38,7 +38,7 @@ import java.util.Calendar;
 
 
 /**
- * This class is the interface of scheduling date, time and temperature for the divice
+ * This class is the interface of schedule house temperature, it includes calender and clock settings
  *
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
@@ -57,9 +57,11 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
     ListView confirmInforList;
     Switch onOff;
 
+    /** the name of the Activity_name */
     public static final String ACTIVITY_NAME = "Query";
     public static final String COLUMN_COUNT = "Cursor\'s  column count= ";
 
+    /** the SQL database */
     SQLiteDatabase db;
     Cursor cursor;
     final ArrayList<String> list = new ArrayList<String>();
@@ -88,9 +90,11 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
         confirmInforList = (ListView)findViewById(R.id.listOfSchedule);
 
         final ScheduleDatabaseHelper scheduleDatabaseHelper = new ScheduleDatabaseHelper(this);
-        //readable
+        //set database to be readable
         db = scheduleDatabaseHelper.getWritableDatabase();
         String[] allColums = {ScheduleDatabaseHelper.KEY_ID,ScheduleDatabaseHelper.KEY_MESSAGE};
+
+        //this query will return all the colums(id and message)
         cursor = db.query(scheduleDatabaseHelper.TABLE_NAME,allColums,null,null,null,null,null);
 
         Log.i(ACTIVITY_NAME,  COLUMN_COUNT+ cursor.getColumnCount() );
@@ -100,7 +104,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
             cursor.moveToNext();
         }
 
-        // inner class
+        // inner class: listView needs to have adapter to provide objects for each row of the list
         class ScheduleAdapter extends ArrayAdapter<String> {
             // ctx represents the current context, 0 is resource ID
             public ScheduleAdapter(Context ctx) {
@@ -118,6 +122,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                 final View result = inflater.inflate(R.layout.schedulelist, null);
                 final TextView scheduled = (TextView)result.findViewById(R.id.message_text);
                 onOff = (Switch)result.findViewById(R.id.switchOn);
+                //set listener to switch
                 onOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -155,8 +160,10 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
+                                //the schedule that user clicked is delete from database
                                 db.execSQL("DELETE FROM "+scheduleDatabaseHelper.TABLE_NAME+" WHERE "+ ScheduleDatabaseHelper.KEY_MESSAGE +"= '"+String.valueOf(list.get(position))+"'");
                                 Log.i("Position",String.valueOf(list.get(position)));
+                                //remove the list items from listView
                                 list.remove(position);
                                 sa.notifyDataSetChanged();
                             }
@@ -178,10 +185,14 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(View v) {
 
+                //add the schedule to the list
                 list.add(display.getText().toString());
+
+                //insert data to the database
                 ContentValues cValues = new ContentValues();
                 cValues.put(scheduleDatabaseHelper.KEY_MESSAGE,display.getText().toString());
                 db.insert(scheduleDatabaseHelper.TABLE_NAME, "null",cValues);
+
                 //this restarts the process of getCount()/ getView()
                 sa.notifyDataSetChanged();
                 display.setText("");
@@ -192,6 +203,10 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
     }
 
+    /**
+     * Displays different dialog(calender, time, temperature)when user clicked different button
+     * @param v the view of calender, time or temperature
+     */
     @Override
     public void onClick(View v) {
 

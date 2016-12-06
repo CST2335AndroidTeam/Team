@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 
 /**
- * This class is the house temperature setting interface, it includes house current temperature,
+ * This class is an activity of the house temperature setting interface, it includes house current temperature,
  * schedule and help settings
  *
  * @author  Yu Wang  2016.12.05

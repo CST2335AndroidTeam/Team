@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * This class
+ * This class creates a database that will use to help storing information from user
  *
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2

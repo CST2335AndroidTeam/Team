@@ -54,20 +54,28 @@
     <string name="garageFragment"><![CDATA[
         <p><h2>Welcome to use Garage interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the toolbar house garage icon to reach control page;</p>
-        <p>2) In the control page, customer is allowed to open/close the garage door and turn on/off the light.Also, opening the garage door will turn on the light automatically.</p>
+        <p>1) Click the toolbar house garage icon to reach control page.</p>
+        <p>2) In the control page, Swipe the garage door or light switch button will control the garage door open/close and light turn on/off.
+         Also, when opening the garage door will turn on the light automatically.</p>
+        <p>3) Swipe the spinner to control brightness of garage light.</p>
         ]]> </string>
     <string name="tempFragment"><![CDATA[
         <p><h2> Welcome to use House Temperature interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the toolbar house temperature icon to reach control page;</p>
-        <p>2) In control page, customer is allowed to change house temperature and this temperature is stored till next time open the app;Also, customer is allowed to create a schedule by adding time/temperature settings when tab the calender icon.</p>
+        <p>1) Click the toolbar house temperature icon to reach control page.</p>
+        <p>2) In control page, click top toolbar of temperature icon will reach temperature setting dialog, scroll the numbers to set current
+        house temperature.</p>
+        <p>3) Click top toolbar of schedule icon will reach the schedule setting page, click each button of the set date, set time,and set temperature
+        to set the schedule of the house temperature and click confirm button, the schedule of temperature setting will list in the main page.
+        Click one of the list item will display a dialog that ask to delete this schedule time. Click switch button will allow to turn on/off the this schedule.</p>
+        <p>4) Click the top toolbar camera icon will reach the device camera.</p>
+        <p>5) Click the top toolbar person icon will display the button snackbar information.</p>
         ]]></string>
     <string name="weatherFragment"><![CDATA[
         <p><h2> Welcome to use Weather interface</h2></p>
         <p>Instruction:</p>
-        <p>1) Customer can check the toolbar house temperature icon to reach control page;</p>
-        <p>2) In control page, display the current outside temperature.</p>
+        <p>1) Click the toolbar house temperature icon to reach control page;</p>
+        <p>2) In control page, it will display the current outside temperature, humidity and wind speed.</p>
         ]]></string>
     <string name="detail">Detail</string>
     <string name="ad_banner_image_description">light on picture</string>
@@ -76,6 +84,8 @@
     <string name="Carlos">Carlos Kitchen</string>
     <string name="Yu">Yu House Setting</string>
     <string name="James">James Automobile</string>
+
+    <string name="help">Help</string>
 
     <string-array name="themelist">
         <item>Normal</item>

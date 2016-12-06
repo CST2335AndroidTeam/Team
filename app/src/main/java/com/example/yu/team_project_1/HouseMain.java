@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * This class is the main house setting class, it includes top toolbar menu and
+ * This class is an activity of the main house setting interface, it includes top toolbar menu and
  * a drawer list of garage, house temperature and weather setting interface
  *
  * @author  Yu Wang  2016.12.05
@@ -271,17 +271,18 @@ public class HouseMain extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(INFORMATION);
                 // Add the buttons
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
                     }
                 });
                 builder.setMessage("Author: Yu Wang\nVersion: 2.2.2\nInstruction: House Setting interface includes the list of garage, house temperature, and weather;" +
                         "\nIn the garage control page, you are allowed to open/close the garage door and turn on/off the light." +
-                        "Also, opening the garage door will turn on the light automatically." +
-                        "\nIn house temperature control page, you are allowed to change house temperature and this temperature is stored till next time open the app;" +
-                        "Also, customer is allowed to create a schedule by adding time/temperature settings when tab the calender icon." +
-                        "\nIn weather control page, it will display the current outside temperature.");
+                        " Also, opening the garage door will turn on the light automatically." +
+                        "\nIn house temperature control page, you are allowed to change house temperature and this temperature is stored till next time open the app." +
+                        " Also, customer is allowed to create a schedule by adding time/temperature settings when tab the calender icon." +
+                        "\nIn weather control page, it will display the current outside temperature." +
+                        "\nIn theme control page, it will display a dialog that ask user to choose the theme background.");
 
                 // Create the AlertDialog
                 AlertDialog dialog = builder.create();

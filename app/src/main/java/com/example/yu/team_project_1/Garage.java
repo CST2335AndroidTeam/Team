@@ -25,7 +25,7 @@ import static android.R.attr.duration;
 import static com.example.yu.team_project_1.R.id.bright;
 
 /**
- * This class is the garage interface, it includes garage door and light settings
+ * This class is an activity of the garage interface, it includes garage door and light settings
  *
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
