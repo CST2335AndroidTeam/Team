@@ -26,10 +26,10 @@
     <string name="textDefault">Selected Number Display here</string>
     <string name="title_activity_living__room">Living_Room</string>
 
-    <string name="temp_sub1">tempToolbarSub1</string>
-    <string name="temp_sub2">tempToolbarSub2</string>
-    <string name="temp_sub3">tempToolbarSub3</string>
-    <string name="temp_sub4">tempToolBarSub4</string>
+    <string name="temp_sub1">CurTempSetting</string>
+    <string name="temp_sub2">ScheduleTemp</string>
+    <string name="temp_sub3">Camera</string>
+    <string name="temp_sub4">Welcome</string>
     <string name="weather">weather</string>
     <string name="mainTheme">Theme</string>
 

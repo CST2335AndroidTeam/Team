@@ -7,7 +7,6 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -16,11 +15,11 @@ import android.widget.TextView;
  * Activities that contain this fragment must implement the
  * create an instance of this fragment.
  */
-public class HouseMainFragment1 extends Fragment {
-    /** the text view of garage instruction*/
-    TextView textViewGarage;
+public class YuWang_HouseMainFragment3 extends Fragment {
+    /** the text view of the weather instruction*/
+    TextView textWeather;
     /** empty constructor */
-    public HouseMainFragment1() {
+    public YuWang_HouseMainFragment3() {
         // Required empty public constructor
     }
 
@@ -40,10 +39,11 @@ public class HouseMainFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_house_main_fragment3, container, false);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_house_main_fragment1, container, false);
-        textViewGarage = (TextView)view.findViewById(R.id.TextGarage);
-        textViewGarage.setText(Html.fromHtml(getString(R.string.garageFragment)));
+        textWeather = (TextView)view.findViewById(R.id.TextWeather);
+        textWeather.setText(Html.fromHtml(getString(R.string.weatherFragment)));
+
         return view;
     }
 

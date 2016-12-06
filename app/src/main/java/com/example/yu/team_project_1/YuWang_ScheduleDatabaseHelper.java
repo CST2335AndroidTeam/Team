@@ -11,7 +11,7 @@ import android.util.Log;
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class ScheduleDatabaseHelper extends SQLiteOpenHelper {
+public class YuWang_ScheduleDatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "schedule.bd";
     public static final int VERSION_NUM = 5;
 
@@ -24,7 +24,7 @@ public class ScheduleDatabaseHelper extends SQLiteOpenHelper {
             + KEY_ID + " integer primary key autoincrement, "
             + KEY_MESSAGE + " text not null);";
 
-    public ScheduleDatabaseHelper(Context ctx) {
+    public YuWang_ScheduleDatabaseHelper(Context ctx) {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
@@ -37,7 +37,7 @@ public class ScheduleDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        Log.i(ScheduleDatabaseHelper.class.getName(),"Upgrading database from version " + oldVersion
+        Log.i(YuWang_ScheduleDatabaseHelper.class.getName(),"Upgrading database from version " + oldVersion
                 + " to " + newVersion + ", which will destroy all old data");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);

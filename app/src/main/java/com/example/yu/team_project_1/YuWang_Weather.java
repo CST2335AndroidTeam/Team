@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class Weather extends AppCompatActivity {
+public class YuWang_Weather extends AppCompatActivity {
 
     TextView temp;
     TextView humi;
@@ -206,7 +206,7 @@ public class Weather extends AppCompatActivity {
         }
 
         /**
-         * Set the the return string from doInBackgroud() to the textView
+         * Set the the return string results from doInBackgroud() to the textView
          * @param result  he exact same object that was returned by doInBackground.
          */
         @Override

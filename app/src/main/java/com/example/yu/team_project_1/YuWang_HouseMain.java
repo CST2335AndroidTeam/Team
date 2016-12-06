@@ -33,7 +33,7 @@ import java.util.Arrays;
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class HouseMain extends AppCompatActivity {
+public class YuWang_HouseMain extends AppCompatActivity {
 
     /**a dialog title of "about us" */
     private static String INFORMATION = "Information";
@@ -54,7 +54,7 @@ public class HouseMain extends AppCompatActivity {
 
 
     /**list items of house setting menu*/
-    String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
+    String[] houseSettingMenu= {"YuWang_Garage","House Temperature","YuWang_Weather"};
     /**assign array list of string to the array list, it will match to list view items*/
     protected ArrayList<String> menuItems = new ArrayList<>(Arrays.asList(houseSettingMenu));
 
@@ -82,19 +82,19 @@ public class HouseMain extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                     case 0:
-                        HouseMainFragment1 garageFragment = new HouseMainFragment1();
+                        YuWang_HouseMainFragment1 garageFragment = new YuWang_HouseMainFragment1();
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.fragmentHolder,garageFragment);
                         fragmentTransaction.commit();
                         break;
                     case 1:
-                        HouseMainFragment2 tempFragment = new HouseMainFragment2();
+                        YuWang_HouseMainFragment2 tempFragment = new YuWang_HouseMainFragment2();
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.fragmentHolder,tempFragment);
                         fragmentTransaction.commit();
                         break;
                     case 2:
-                        HouseMainFragment3 weatherFragment = new HouseMainFragment3();
+                        YuWang_HouseMainFragment3 weatherFragment = new YuWang_HouseMainFragment3();
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.fragmentHolder,weatherFragment);
                         fragmentTransaction.commit();
@@ -155,7 +155,7 @@ public class HouseMain extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             //set layout of the activity
-            LayoutInflater inflater = HouseMain.this.getLayoutInflater();
+            LayoutInflater inflater = YuWang_HouseMain.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.menu_list, null);
 
             int rowId = 0;
@@ -220,18 +220,18 @@ public class HouseMain extends AppCompatActivity {
                  break;
             case R.id.item1:
 
-                Intent intentGarage = new Intent(HouseMain.this,Garage.class);
+                Intent intentGarage = new Intent(YuWang_HouseMain.this,YuWang_Garage.class);
                 startActivityForResult(intentGarage,2);
 
                 break;
             case R.id.item2:
-                Intent intentTemp = new Intent(HouseMain.this,HouseTemp.class);
+                Intent intentTemp = new Intent(YuWang_HouseMain.this,YuWang_HouseTemp.class);
                 startActivityForResult(intentTemp,1);
 
                 break;
             case R.id.item3:
 
-                Intent intentWeather= new Intent(HouseMain.this, Weather.class);
+                Intent intentWeather= new Intent(YuWang_HouseMain.this, YuWang_Weather.class);
                 startActivity(intentWeather);
 
                 break;
@@ -241,7 +241,7 @@ public class HouseMain extends AppCompatActivity {
                 View dView = getLayoutInflater().inflate(R.layout.themedialog,null);
                 b.setTitle(themeSetting);
                 themeSpinner = (Spinner)dView.findViewById(R.id.themeSpinner);
-                themeAdapter = new ArrayAdapter<>(HouseMain.this,android.R.layout.simple_spinner_item,getResources().getStringArray(R.array.themelist));
+                themeAdapter = new ArrayAdapter<>(YuWang_HouseMain.this,android.R.layout.simple_spinner_item,getResources().getStringArray(R.array.themelist));
                 themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 themeSpinner.setAdapter(themeAdapter);
                 b.setPositiveButton("OK", new DialogInterface.OnClickListener() {

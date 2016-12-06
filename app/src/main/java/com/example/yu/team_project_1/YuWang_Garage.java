@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.support.annotation.BoolRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,17 +18,13 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import static android.R.attr.data;
-import static android.R.attr.duration;
-import static com.example.yu.team_project_1.R.id.bright;
-
 /**
  * This class is an activity of the garage interface, it includes garage door and light settings
  *
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class Garage extends AppCompatActivity {
+public class YuWang_Garage extends AppCompatActivity {
     /** the switch of garage door*/
     private Switch door;
     /** the switch of garage light*/
@@ -95,11 +89,11 @@ public class Garage extends AppCompatActivity {
                 CharSequence text;
                 int duration;
                 if(isChecked){
-                    text= "Garage door is opened";
+                    text= "YuWang_Garage door is opened";
                     duration = Toast.LENGTH_SHORT;
                     light.setChecked(true);
                     garageClose.setImageResource(R.drawable.garageopen);
-                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    Toast toast = Toast.makeText(YuWang_Garage.this , text, duration);
                     toast.show(); //display your message box
                     lightControl.setVisibility(View.VISIBLE);
                     brightControl.setVisibility(View.VISIBLE);
@@ -111,11 +105,11 @@ public class Garage extends AppCompatActivity {
 
                 }
                 if(!isChecked){
-                    text = "Garage door is closed ";
+                    text = "YuWang_Garage door is closed ";
                     duration = Toast.LENGTH_SHORT;
                     light.setChecked(false);
                     garageClose.setImageResource(R.drawable.garageclose);
-                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    Toast toast = Toast.makeText(YuWang_Garage.this , text, duration);
                     toast.show(); //display your message box
 
                     lightControl.setVisibility(View.INVISIBLE);
@@ -145,7 +139,7 @@ public class Garage extends AppCompatActivity {
                     SharedPreferences.Editor editor = pre.edit();
                     editor.putBoolean("LIGHT",true);
                     editor.commit();
-                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    Toast toast = Toast.makeText(YuWang_Garage.this , text, duration);
                     toast.show();
 
                 }
@@ -160,7 +154,7 @@ public class Garage extends AppCompatActivity {
                     editor.putBoolean("LIGHT",false);
                     editor.commit();
 
-                    Toast toast = Toast.makeText(Garage.this , text, duration);
+                    Toast toast = Toast.makeText(YuWang_Garage.this , text, duration);
                     toast.show();
                 }
                 //display your message box
@@ -229,7 +223,7 @@ public class Garage extends AppCompatActivity {
 
                 break;
             case R.id.g2:
-                Toast toast3 = Toast.makeText(Garage.this , "Version 2.2.2, by Yu Wang", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(YuWang_Garage.this , "Version 2.2.2, by Yu Wang", Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
         }

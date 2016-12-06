@@ -15,11 +15,11 @@ import android.widget.TextView;
  * Activities that contain this fragment must implement the
  * create an instance of this fragment.
  */
-public class HouseMainFragment3 extends Fragment {
-    /** the text view of the weather instruction*/
-    TextView textWeather;
+public class YuWang_HouseMainFragment2 extends Fragment {
+    /** the text view of house temperature instruction*/
+    TextView textTemperature;
     /** empty constructor */
-    public HouseMainFragment3() {
+    public YuWang_HouseMainFragment2() {
         // Required empty public constructor
     }
 
@@ -27,6 +27,7 @@ public class HouseMainFragment3 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     /**
@@ -39,11 +40,10 @@ public class HouseMainFragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_house_main_fragment3, container, false);
         // Inflate the layout for this fragment
-        textWeather = (TextView)view.findViewById(R.id.TextWeather);
-        textWeather.setText(Html.fromHtml(getString(R.string.weatherFragment)));
-
+        View view = inflater.inflate(R.layout.fragment_house_main_fragment2, container, false);
+        textTemperature = (TextView)view.findViewById(R.id.TextTemperature);
+        textTemperature.setText(Html.fromHtml(getString(R.string.tempFragment)));
         return view;
     }
 

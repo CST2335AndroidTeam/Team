@@ -43,7 +43,7 @@ import java.util.Calendar;
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickListener{
+public class YuWang_ScheduleTimeTemp extends AppCompatActivity implements View.OnClickListener{
     Button date;
     Button time;
     Button temp;
@@ -89,18 +89,18 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
         confirmInforList = (ListView)findViewById(R.id.listOfSchedule);
 
-        final ScheduleDatabaseHelper scheduleDatabaseHelper = new ScheduleDatabaseHelper(this);
+        final YuWang_ScheduleDatabaseHelper yuWangScheduleDatabaseHelper = new YuWang_ScheduleDatabaseHelper(this);
         //set database to be readable
-        db = scheduleDatabaseHelper.getWritableDatabase();
-        String[] allColums = {ScheduleDatabaseHelper.KEY_ID,ScheduleDatabaseHelper.KEY_MESSAGE};
+        db = yuWangScheduleDatabaseHelper.getWritableDatabase();
+        String[] allColums = {YuWang_ScheduleDatabaseHelper.KEY_ID, YuWang_ScheduleDatabaseHelper.KEY_MESSAGE};
 
         //this query will return all the colums(id and message)
-        cursor = db.query(scheduleDatabaseHelper.TABLE_NAME,allColums,null,null,null,null,null);
+        cursor = db.query(yuWangScheduleDatabaseHelper.TABLE_NAME,allColums,null,null,null,null,null);
 
         Log.i(ACTIVITY_NAME,  COLUMN_COUNT+ cursor.getColumnCount() );
         cursor.moveToFirst();
         for(int i = 0; i < cursor.getCount(); i++){
-            list.add(cursor.getString( cursor.getColumnIndex( scheduleDatabaseHelper.KEY_MESSAGE)));
+            list.add(cursor.getString( cursor.getColumnIndex( yuWangScheduleDatabaseHelper.KEY_MESSAGE)));
             cursor.moveToNext();
         }
 
@@ -118,7 +118,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
             }
 
             public View getView(int position, View convertView, ViewGroup parent){
-                LayoutInflater inflater = ScheduleTimeTemp.this.getLayoutInflater();
+                LayoutInflater inflater = YuWang_ScheduleTimeTemp.this.getLayoutInflater();
                 final View result = inflater.inflate(R.layout.schedulelist, null);
                 final TextView scheduled = (TextView)result.findViewById(R.id.message_text);
                 onOff = (Switch)result.findViewById(R.id.switchOn);
@@ -135,7 +135,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                             text = "Switch is Off";
                             duration = Toast.LENGTH_LONG;
                         }
-                        Toast toast = Toast.makeText(ScheduleTimeTemp.this , text, duration);
+                        Toast toast = Toast.makeText(YuWang_ScheduleTimeTemp.this , text, duration);
                         toast.show(); //display your message box
 
                     }
@@ -153,7 +153,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                Log.i("Position","is at "+ position);
-                AlertDialog.Builder builder = new AlertDialog.Builder(ScheduleTimeTemp.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(YuWang_ScheduleTimeTemp.this);
                         builder.setTitle("DELETE ??");
                         builder.setMessage("Are you sure you want to delete this schedule?");
                         // Add the buttons
@@ -161,7 +161,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
                             public void onClick(DialogInterface dialog, int id) {
 
                                 //the schedule that user clicked is delete from database
-                                db.execSQL("DELETE FROM "+scheduleDatabaseHelper.TABLE_NAME+" WHERE "+ ScheduleDatabaseHelper.KEY_MESSAGE +"= '"+String.valueOf(list.get(position))+"'");
+                                db.execSQL("DELETE FROM "+ yuWangScheduleDatabaseHelper.TABLE_NAME+" WHERE "+ YuWang_ScheduleDatabaseHelper.KEY_MESSAGE +"= '"+String.valueOf(list.get(position))+"'");
                                 Log.i("Position",String.valueOf(list.get(position)));
                                 //remove the list items from listView
                                 list.remove(position);
@@ -190,8 +190,8 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
                 //insert data to the database
                 ContentValues cValues = new ContentValues();
-                cValues.put(scheduleDatabaseHelper.KEY_MESSAGE,display.getText().toString());
-                db.insert(scheduleDatabaseHelper.TABLE_NAME, "null",cValues);
+                cValues.put(yuWangScheduleDatabaseHelper.KEY_MESSAGE,display.getText().toString());
+                db.insert(yuWangScheduleDatabaseHelper.TABLE_NAME, "null",cValues);
 
                 //this restarts the process of getCount()/ getView()
                 sa.notifyDataSetChanged();

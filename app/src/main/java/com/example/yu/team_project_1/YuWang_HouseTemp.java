@@ -1,6 +1,5 @@
 package com.example.yu.team_project_1;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,7 +28,7 @@ import android.widget.Toast;
  * @author  Yu Wang  2016.12.05
  * @version 2.2.2
  */
-public class HouseTemp extends AppCompatActivity{
+public class YuWang_HouseTemp extends AppCompatActivity{
     /**the text view of current temperature*/
     TextView tempCur;
     private static String FILENAME ="FileName";
@@ -109,7 +108,7 @@ public class HouseTemp extends AppCompatActivity{
 
             case R.id.t2:
 
-                Intent intentSchedule = new Intent(this,ScheduleTimeTemp.class);
+                Intent intentSchedule = new Intent(this,YuWang_ScheduleTimeTemp.class);
                 startActivity(intentSchedule);
 
                 break;
@@ -129,7 +128,7 @@ public class HouseTemp extends AppCompatActivity{
                 break;
             case R.id.t5:
 
-                Toast toast3 = Toast.makeText(HouseTemp.this , "Version 2.2.2 , by Yu Wang", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(YuWang_HouseTemp.this , "Version 2.2.2 , by Yu Wang", Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
         }

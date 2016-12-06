@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yu.team_project_1.HouseMainFragment1">
+    tools:context="com.example.yu.team_project_1.YuWang_HouseMainFragment1">
 
     <TextView
         android:layout_width="match_parent"
