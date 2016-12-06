@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -36,6 +37,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
+/**
+ * This class is the interface of scheduling date, time and temperature for the divice
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
 public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickListener{
     Button date;
     Button time;
@@ -80,10 +87,6 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
         confirmInforList = (ListView)findViewById(R.id.listOfSchedule);
 
-        LayoutInflater inflater = ScheduleTimeTemp.this.getLayoutInflater();
-        View switchView = inflater.inflate(R.layout.schedulelist, null);
-        onOff = (Switch)switchView.findViewById(R.id.switchOn);
-
         final ScheduleDatabaseHelper scheduleDatabaseHelper = new ScheduleDatabaseHelper(this);
         //readable
         db = scheduleDatabaseHelper.getWritableDatabase();
@@ -93,11 +96,11 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
         Log.i(ACTIVITY_NAME,  COLUMN_COUNT+ cursor.getColumnCount() );
         cursor.moveToFirst();
         for(int i = 0; i < cursor.getCount(); i++){
-           // Log.i(ACTIVITY_NAME, SQL_MESSAGE + cursor.getString( cursor.getColumnIndex( scheduleDatabaseHelper.KEY_MESSAGE) ) );
             list.add(cursor.getString( cursor.getColumnIndex( scheduleDatabaseHelper.KEY_MESSAGE)));
             cursor.moveToNext();
         }
 
+        // inner class
         class ScheduleAdapter extends ArrayAdapter<String> {
             // ctx represents the current context, 0 is resource ID
             public ScheduleAdapter(Context ctx) {
@@ -112,15 +115,65 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
             public View getView(int position, View convertView, ViewGroup parent){
                 LayoutInflater inflater = ScheduleTimeTemp.this.getLayoutInflater();
-                View result = inflater.inflate(R.layout.schedulelist, null);
-                TextView message = (TextView)result.findViewById(R.id.message_text);
-                message.setText(   getItem(position)  ); // get the string at position
+                final View result = inflater.inflate(R.layout.schedulelist, null);
+                final TextView scheduled = (TextView)result.findViewById(R.id.message_text);
+                onOff = (Switch)result.findViewById(R.id.switchOn);
+                onOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        CharSequence text;
+                        int duration;
+                        if(isChecked){
+                            text= "Switch is on";
+                            duration = Toast.LENGTH_SHORT;
+                        }else{
+                            text = "Switch is Off";
+                            duration = Toast.LENGTH_LONG;
+                        }
+                        Toast toast = Toast.makeText(ScheduleTimeTemp.this , text, duration);
+                        toast.show(); //display your message box
+
+                    }
+                });
+
+                scheduled.setText(   getItem(position)  ); // get the string at position
                 return result;
             }
         }
 
         final ScheduleAdapter sa = new ScheduleAdapter(this);
         confirmInforList.setAdapter(sa);
+        confirmInforList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        confirmInforList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+               Log.i("Position","is at "+ position);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ScheduleTimeTemp.this);
+                        builder.setTitle("DELETE ??");
+                        builder.setMessage("Are you sure you want to delete this schedule?");
+                        // Add the buttons
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                db.execSQL("DELETE FROM "+scheduleDatabaseHelper.TABLE_NAME+" WHERE "+ ScheduleDatabaseHelper.KEY_MESSAGE +"= '"+String.valueOf(list.get(position))+"'");
+                                Log.i("Position",String.valueOf(list.get(position)));
+                                list.remove(position);
+                                sa.notifyDataSetChanged();
+                            }
+                        });
+                        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                                dialog.cancel();
+                            }
+                        });
+                        // Create the AlertDialog
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+            }
+        });
+
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +188,7 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
 
             }
         });
+
 
     }
 
@@ -219,31 +273,6 @@ public class ScheduleTimeTemp extends AppCompatActivity implements View.OnClickL
         }
 
 
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        onOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                CharSequence text;
-                int duration;
-                if(isChecked){
-                    Log.i("message","RUN");
-                    text= "Switch is on";
-                    duration = Toast.LENGTH_SHORT;
-                }else{
-                    text = "Switch is Off";
-                    duration = Toast.LENGTH_LONG;
-                }
-                Toast toast = Toast.makeText(ScheduleTimeTemp.this , text, duration);
-                toast.show(); //display your message box
-
-            }
-        });
     }
 
 }

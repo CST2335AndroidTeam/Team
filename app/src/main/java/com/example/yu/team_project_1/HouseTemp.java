@@ -22,13 +22,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+/**
+ * This class is the house temperature setting interface, it includes house current temperature,
+ * schedule and help settings
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
 public class HouseTemp extends AppCompatActivity{
+    /**the text view of current temperature*/
     TextView tempCur;
     private static String FILENAME ="FileName";
+    /**the data version of the database*/
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView picture;
 
+    /**
+     * Initialize activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +59,19 @@ public class HouseTemp extends AppCompatActivity{
 
 
     }
+
+
+    /**
+     * Inflates the menu from R.menu.toolbar from XML layout
+     * @param m  the menu item that built from xml layout
+     * @return  true
+     */
     public boolean onCreateOptionsMenu (Menu m){
         getMenuInflater().inflate(R.menu.temp,m);
         return true;
     }
 
-    //responds to one of the items being selected
+    /**Responds to one of the items being selected*/
     public boolean onOptionsItemSelected(MenuItem mi){
         tempCur = (TextView)findViewById(R.id.cur_temp);
         int id = mi.getItemId();

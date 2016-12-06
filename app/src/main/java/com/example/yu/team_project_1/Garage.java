@@ -24,16 +24,30 @@ import static android.R.attr.data;
 import static android.R.attr.duration;
 import static com.example.yu.team_project_1.R.id.bright;
 
+/**
+ * This class is the garage interface, it includes garage door and light settings
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
 public class Garage extends AppCompatActivity {
+    /** the switch of garage door*/
     private Switch door;
+    /** the switch of garage light*/
     private Switch light;
+    /** the dialog title of help setting information*/
     private static final String GARAGE_SETTING ="House Setting Tool Bar";
+    /** the dialog title of go back information when user click back icon*/
     public static final String DIALOG_TITLE = "Do you want to go back?";
     ImageView garageClose;
     ImageView lightControl;
     SeekBar brightControl;
     private static String FILENAME ="FIle";
 
+    /**
+     * Initialize activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +63,15 @@ public class Garage extends AppCompatActivity {
 
         brightControl.setProgress(100);
         lightControl.setImageAlpha(50);
+
+        //set brightness of the picture
         brightControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 int alpha = 10+brightControl.getProgress();
                 lightControl.setImageAlpha(alpha);
+                //store brightness value to the File
                 SharedPreferences pre = getSharedPreferences(FILENAME, Context.MODE_PRIVATE) ;
                 SharedPreferences.Editor editor = pre.edit();
                 editor.putInt("ALPHA",alpha);
@@ -153,6 +170,9 @@ public class Garage extends AppCompatActivity {
 
     }
 
+    /**
+     * When the app started, all the settings that set before will still keep.
+     */
     @Override
     public void onStart(){
         super.onStart();
@@ -168,18 +188,21 @@ public class Garage extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Inflates the menu from R.menu.toolbar from XML layout
+     * @param m  the menu item that built from xml layout
+     * @return  true
+     */
     public boolean onCreateOptionsMenu (Menu m){
         getMenuInflater().inflate(R.menu.garage,m);
         return true;
     }
 
-    //responds to one of the items being selected
+    /**responds to one of the items being selected*/
     public boolean onOptionsItemSelected(MenuItem mi){
         int id = mi.getItemId();
         switch(id){
             case R.id.g1:
-                //TODO: dialog
                 Log.d(GARAGE_SETTING,"Item1 is selected");
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(DIALOG_TITLE);

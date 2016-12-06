@@ -25,6 +25,11 @@ import java.net.URL;
 import java.util.StringTokenizer;
 
 
+/**
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
 public class Weather extends AppCompatActivity {
 
     TextView temp;

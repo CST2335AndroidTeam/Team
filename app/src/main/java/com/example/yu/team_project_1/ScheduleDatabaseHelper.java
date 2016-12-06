@@ -6,12 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by Yu on 2016-11-24.
+ * This class
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
  */
-
 public class ScheduleDatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "schedule.bd";
-    public static final int VERSION_NUM = 4;
+    public static final int VERSION_NUM = 5;
 
     public static final String TABLE_NAME = "schedule_table";
     public static final String KEY_ID = "_id";

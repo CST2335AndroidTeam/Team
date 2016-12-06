@@ -17,8 +17,9 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class HouseMainFragment1 extends Fragment {
-
+    /** the text view of garage instruction*/
     TextView textViewGarage;
+    /** empty constructor */
     public HouseMainFragment1() {
         // Required empty public constructor
     }
@@ -29,6 +30,13 @@ public class HouseMainFragment1 extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Returns view of frfment_houst_main_fragment1
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

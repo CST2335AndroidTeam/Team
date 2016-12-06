@@ -16,8 +16,9 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class HouseMainFragment2 extends Fragment {
-
+    /** the text view of house temperature instruction*/
     TextView textTemperature;
+    /** empty constructor */
     public HouseMainFragment2() {
         // Required empty public constructor
     }
@@ -29,6 +30,13 @@ public class HouseMainFragment2 extends Fragment {
 
     }
 
+    /**
+     * Returns view of frfment_houst_main_fragment1
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

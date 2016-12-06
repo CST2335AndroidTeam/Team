@@ -26,23 +26,42 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * This class is the main house setting class, it includes top toolbar menu and
+ * a drawer list of garage, house temperature and weather setting interface
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
 public class HouseMain extends AppCompatActivity {
+
+    /**a dialog title of "about us" */
     private static String INFORMATION = "Information";
+    /**a dialog title of "theme setting"*/
     private static String themeSetting="Set your theme";
+    /**the drawer toggle from toolbar menu*/
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    /**the layout of drawer */
     private DrawerLayout drawerLayout;
+    /**the list items of listView, includes garage, house temperature and weather*/
     private ListView navListView;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+    /**the spinner of theme, which includes normal, console and navy */
     private Spinner themeSpinner;
+    /**the adapter that adapt theme spinner */
     private ArrayAdapter<String> themeAdapter;
 
 
-
+    /**list items of house setting menu*/
     String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
+    /**assign array list of string to the array list, it will match to list view items*/
     protected ArrayList<String> menuItems = new ArrayList<>(Arrays.asList(houseSettingMenu));
 
+    /**
+     * Initialize activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +75,8 @@ public class HouseMain extends AppCompatActivity {
         navListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         fragmentManager =getSupportFragmentManager();
 
-
         navListView.setAdapter(adapter);
+        //create a fragment when user click the each of item from list
         navListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -85,6 +104,7 @@ public class HouseMain extends AppCompatActivity {
             }
         });
 
+        //there is a home icon on the left of toolbar, set this home icon to be dynamically
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.openDrawer,R.string.closeDrawer);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         ActionBar actionBar = getSupportActionBar();
@@ -94,24 +114,47 @@ public class HouseMain extends AppCompatActivity {
 
     }
 
-
+    /**
+     * The private class of houseSetting, it provides a common algorithm to each row of the list
+     */
     private class HouseAdapter extends ArrayAdapter<String> {
+        /**
+         * Conductor: conducts a new object of HouseAdapter object
+         * @param ctx  the activity that holds the listview
+         */
         HouseAdapter(Context ctx) {
             super(ctx, 0);
         }
 
+        /**
+         * Returns the number of items
+         * @return  the number of items
+         */
         @Override
         public int getCount() {
             return menuItems.size();
         }
 
+        /**
+         * Returns a specific item
+         * @param position  the position of the item
+         * @return a specific item
+         */
         @Override
         public String getItem(int position) {
             return menuItems.get(position);
         }
 
+        /**
+         * Creates the layout for the specific row
+         * @param position  the position of the item
+         * @param convertView the convert view of the item
+         * @param parent
+         * @return view of the list item
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            //set layout of the activity
             LayoutInflater inflater = HouseMain.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.menu_list, null);
 
@@ -139,22 +182,35 @@ public class HouseMain extends AppCompatActivity {
         }
     }
 
+    /**
+     * Called when activity start-up is complete (after onStart() and onRestoreInstanceState(Bundle) have been called)
+     * @param savedInstanceState
+     */
     @Override
     protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
+
+    /**
+     * Inflates the menu from R.menu.toolbar from XML layout
+     * @param m  the menu item that built from xml layout
+     * @return  true
+     */
     @Override
     public boolean onCreateOptionsMenu (Menu m){
         getMenuInflater().inflate(R.menu.toolbar,m);
         return true;
     }
 
+    /**
+     * Responds to one of the items being selected
+     */
     @Override
-    //responds to one of the items being selected
     public boolean onOptionsItemSelected(MenuItem mi){
         int id = mi.getItemId();
         switch(id){
+            //home icon is selected
             case android.R.id.home:
                  if(drawerLayout.isDrawerOpen(navListView)){
                      drawerLayout.closeDrawer(navListView);
