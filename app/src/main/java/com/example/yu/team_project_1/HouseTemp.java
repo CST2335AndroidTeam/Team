@@ -78,35 +78,28 @@ public class HouseTemp extends AppCompatActivity{
         switch(id){
             case R.id.t1:
                 //Set tempereture dialog
-                NumberPicker numberPicker = new NumberPicker(this);
+                final NumberPicker numberPicker = new NumberPicker(this);
                 numberPicker.setMaxValue(40);
                 numberPicker.setMinValue(0);
-                numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-                    @Override
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                        tempCur.setText((newVal + " \u2103"));
-                        SharedPreferences pre = getSharedPreferences(FILENAME,Context.MODE_PRIVATE) ;
-                        SharedPreferences.Editor editor = pre.edit();
-                        editor.putString("Default",tempCur.getText().toString() );
-                        editor.commit();
-
-                    }
-                });
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(this).setView(numberPicker);
-
                 builder2.setTitle("Set Temperature To")
                         .setIcon(R.drawable.pig)
                         .setPositiveButton(R.string.set, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // User clicked OK button
-                                Intent resultIntent = new Intent(  );
-                                setResult(Activity.RESULT_OK, resultIntent);
+
+                                tempCur.setText((numberPicker.getValue() + " \u2103"));
+                                SharedPreferences pre = getSharedPreferences(FILENAME,Context.MODE_PRIVATE) ;
+                                SharedPreferences.Editor editor = pre.edit();
+                                editor.putString("Default",tempCur.getText().toString() );
+                                editor.commit();
+
+
                             }
                         })
                         .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // User cancelled the dialog
-                                dialog.cancel();
+                                dialog.dismiss();
                             }
                         });
 
