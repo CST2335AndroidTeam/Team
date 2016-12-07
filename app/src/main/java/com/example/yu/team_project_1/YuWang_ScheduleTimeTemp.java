@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
@@ -35,6 +36,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import static android.provider.Telephony.Mms.Part.FILENAME;
+import static com.example.yu.team_project_1.R.id.door;
 
 
 /**
@@ -128,6 +132,7 @@ public class YuWang_ScheduleTimeTemp extends AppCompatActivity implements View.O
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         CharSequence text;
                         int duration;
+
                         if(isChecked){
                             text= "Switch is on";
                             duration = Toast.LENGTH_SHORT;
@@ -140,6 +145,8 @@ public class YuWang_ScheduleTimeTemp extends AppCompatActivity implements View.O
 
                     }
                 });
+
+
 
                 scheduled.setText(   getItem(position)  ); // get the string at position
                 return result;

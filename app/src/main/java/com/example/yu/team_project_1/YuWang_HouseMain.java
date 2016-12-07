@@ -54,7 +54,7 @@ public class YuWang_HouseMain extends AppCompatActivity {
 
 
     /**list items of house setting menu*/
-    String[] houseSettingMenu= {"YuWang_Garage","House Temperature","YuWang_Weather"};
+    String[] houseSettingMenu= {"Garage","House Temperature","Weather"};
     /**assign array list of string to the array list, it will match to list view items*/
     protected ArrayList<String> menuItems = new ArrayList<>(Arrays.asList(houseSettingMenu));
 
