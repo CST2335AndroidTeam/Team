@@ -41,7 +41,29 @@
         <activity
             android:name=".Living_Room"
             android:label="@string/title_activity_living__room"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Lighting1"
+            android:label="Light1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Lighting2"
+            android:label="Light2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Lighting3"
+            android:label="Light3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Shades"
+            android:label="Shades"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+        android:name=".Television"
+        android:label="Televison"
+        android:theme="@style/AppTheme.NoActionBar"
+        />
     </application>
 
 </manifest>
