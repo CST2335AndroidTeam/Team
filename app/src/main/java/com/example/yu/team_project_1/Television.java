@@ -12,27 +12,30 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Television extends AppCompatActivity {
 
     private GridView channelGrid;
-    private Button powerButton;
+    private TextView channelselected;
     private boolean tvPower = false;
-    private String wholeChannel;
-    private Button buttonright;
-    private Button buttonleft;
-    private Button buttondown;
-    private Button buttonup;
+    private String wholeChannel = "";
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_television);
 
-        Button button = (Button)findViewById(R.id.powerbutton);
+        Button buttonUp = (Button) findViewById(R.id.upbutton);
+        Button buttonRight = (Button)findViewById(R.id.rightbutton);
+        Button buttonLeft = (Button)findViewById(R.id.leftbutton);
+        Button buttonDown = (Button)findViewById(R.id.downbutton);
+
+        Button button = (Button) findViewById(R.id.powerbutton);
         button.setOnClickListener(new OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                                           /*if(tvPower == false) {
                                               tvPower = true;
                                               Toast.makeText(Television.this, "Television on", Toast.LENGTH_SHORT).show();
@@ -41,11 +44,11 @@ public class Television extends AppCompatActivity {
                                               Toast.makeText(Television.this, "Television off", Toast.LENGTH_SHORT).show();
                                           }*/
 
-                                          tvPower = !tvPower;
-                                          String stringToDisplay = tvPower ? "TV on" : "TV off";
-                                          Toast.makeText(Television.this, stringToDisplay, Toast.LENGTH_SHORT).show();
-                                      }
-                                  });
+                tvPower = !tvPower;
+                String stringToDisplay = tvPower ? "TV on" : "TV off";
+                Toast.makeText(Television.this, stringToDisplay, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         GridView gridview = (GridView) findViewById(R.id.channelgrid);
@@ -54,19 +57,31 @@ public class Television extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                if(position >=0 && position <=8){// parse position +1 to string
+                if (position >= 0 && position <= 8) {// parse position +1 to string
                     position++;
                     String channel = Integer.toString(position);
                     // string add to variable
                     wholeChannel = wholeChannel + channel;
-                }else if(position == 11){
+                } else if (position == 11) {
                     wholeChannel = wholeChannel + "0";
                 }
 
 
             }
         });
+
+       final TextView channelselected = (TextView)findViewById(R.id.channelselected);
+
+        final TextView enter = (TextView)findViewById(R.id.enter);
+        enter.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                channelselected.setText(wholeChannel);
+                wholeChannel = " ";
+            }
+        });
     }
+
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
 
@@ -98,11 +113,11 @@ public class Television extends AppCompatActivity {
                 }
 
                 imageView.setImageResource(channelButtons[position]);
-            } else if(position==9){
+            } else if (position == 9) {
                 View newView = new View(mContext);
                 newView.setLayoutParams(new GridView.LayoutParams(115, 115));
                 return newView;
-            } else if(position == 10){
+            } else if (position == 10) {
                 if (convertView == null) {
                     // if it's not recycled, initialize some attributes
                     imageView = getImageView();
@@ -118,7 +133,7 @@ public class Television extends AppCompatActivity {
 
         private ImageView getImageView() {
             ImageView imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(115,115));
+            imageView.setLayoutParams(new GridView.LayoutParams(115, 115));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
             return imageView;
@@ -133,11 +148,5 @@ public class Television extends AppCompatActivity {
 
         };
     }
- /*  Button buttonUp = (Button)findViewById(R.id.upbutton);
 
-    Button buttonRight = (Button)findViewById(R.id.rightbutton);
-    Button buttonLeft = (Button)findViewById(R.id.leftbutton);
-
-    Button buttonDown = (Button)findViewById(R.id.downbutton);
-    */
 }

@@ -24,7 +24,7 @@
         />
 
     <TextView
-        android:text="00"
+        android:text="--"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="50dp"
@@ -36,9 +36,10 @@
     </FrameLayout>
 
     <GridView
+
         android:id="@+id/channelgrid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:numColumns="3"
 
         android:verticalSpacing="10dp"
@@ -47,46 +48,57 @@
         android:gravity="center"
         />
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout 
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="35dp">
 
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:id="@+id/upbutton"
+                android:background="@drawable/up_button"
 
-    <Button
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_gravity="center"
-        android:id="@+id/upbutton"
-        android:background="@drawable/up_button"
-        />
+                />
     </FrameLayout>
 
-    <Button
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/leftbutton"
-        android:background="@drawable/left_button"
-        />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:text="ENTER"
-        android:layout_width="35dp"
-        android:layout_height="25dp"
-        android:id="@+id/enter"
-        />
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/leftbutton"
+                android:background="@drawable/left_button"
+                android:layout_gravity="left"
+                />
 
-    <Button
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/rightbutton"
-        android:background="@drawable/right_button"
-        />
+            <TextView
+                android:text="ENTER"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:id="@+id/enter"
+                android:layout_gravity="center"
+                />
+
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/rightbutton"
+                android:background="@drawable/right_button"
+                android:layout_gravity="right"
+                />
+    </LinearLayout>
 
     <Button
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:id="@+id/downbutton"
         android:background="@drawable/down_button"
+        android:layout_gravity="center"
         />
 
 </LinearLayout>
