@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.yu.team_project_1.R;
 
 
-public class DriveFragment extends Fragment {
+public class Auto_DriveFragment extends Fragment {
 
     private Button addKmButton;
 
-    public DriveFragment() {
+    public Auto_DriveFragment() {
         // Required empty public constructor
     }
 

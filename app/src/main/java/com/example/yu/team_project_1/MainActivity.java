@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         automobileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AutomobileMainActivity.class));
+                startActivity(new Intent(MainActivity.this, Auto_MainActivity.class));
             }
         });
     }

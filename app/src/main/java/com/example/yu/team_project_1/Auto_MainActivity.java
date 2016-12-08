@@ -1,14 +1,22 @@
 package com.example.yu.team_project_1;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,9 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class AutomobileMainActivity extends AppCompatActivity {
+public class Auto_MainActivity extends AppCompatActivity {
     private ListView listview;
-
+    private EditText addressBox;
 
     final static int TEMPATURE = 0;
     final static int FUEL = 1;
@@ -36,14 +44,19 @@ public class AutomobileMainActivity extends AppCompatActivity {
             "GPS Directions",
             "Lights",
             "Odometer",
-            "Drive" };
+            "Drive"
+    };
 
+    protected boolean isTablet;
     protected ArrayList<String> settingItems = new ArrayList<>(Arrays.asList(settingItemsArr));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile_main);
+
+        isTablet = (findViewById(R.id.auto_setting_container) != null);
+
 
 
         listview = (ListView)findViewById(R.id.automobile_list);
@@ -63,17 +76,51 @@ public class AutomobileMainActivity extends AppCompatActivity {
                     case RADIO:
                         break;
                     case GPS:
+                        goToGPS();
                         break;
                     case LIGHT:
+                        if(isTablet) {
+                            final Auto_LightFragment lightFragment = new Auto_LightFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.auto_setting_container, lightFragment).commit();
+                        }else {
+                            startActivity(new Intent(Auto_MainActivity.this, Auto_LightActivity.class));
+                        }
                         break;
                     case ODOMETER:
                         break;
                     case DRIVE:
-                        startActivity(new Intent(AutomobileMainActivity.this, DriveDetailActivity.class));
+                        if(isTablet) {
+                            final Auto_DriveFragment driveFragment = new Auto_DriveFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.auto_setting_container, driveFragment).commit();
+                        }else {
+                            startActivity(new Intent(Auto_MainActivity.this, Auto_DriveDetailActivity.class));
+                        }
                         break;
                 }
             }
         });
+    }
+
+    private void goToGPS(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dlg = inflater.inflate(R.layout.auto_navigation_dialog, null);
+        addressBox =(EditText) dlg.findViewById(R.id.auto_dialog_address) ;
+        builder.setView(dlg);
+        builder.setMessage(R.string.navigation_dialog_title);
+        builder.setPositiveButton(R.string.auto_navigation_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        String address = addressBox.getText().toString();
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=" +address ));
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+        builder.create().show();
     }
 
 
@@ -94,7 +141,7 @@ public class AutomobileMainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = AutomobileMainActivity.this.getLayoutInflater();
+            LayoutInflater inflater = Auto_MainActivity.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.auto_setting_row, null);
 
             int imageid = 0;
