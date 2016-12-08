@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="horizontal"
+    android:showDividers="middle"
+    tools:context="com.example.yu.team_project_1.K_FlyerListActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="fill_parent"
+        android:background="@drawable/k_screen8">
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im1" />
+        <TextView
+            android:text="Superstore"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/k_flyer_im1"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im2"
+            android:layout_below="@id/k_flyer_im1" />
+        <TextView
+            android:text="Walmart"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_flyer_im1"
+            android:layout_toRightOf="@id/k_flyer_im2"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im3"
+            android:layout_below="@id/k_flyer_im2"/>
+
+        <TextView
+            android:text="Food Basics"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_flyer_im2"
+            android:layout_toRightOf="@id/k_flyer_im3"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im4"
+            android:layout_below="@id/k_flyer_im3"/>
+
+        <TextView
+            android:text="Independent Store"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_flyer_im3"
+            android:layout_toRightOf="@id/k_flyer_im4"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im5"
+            android:layout_below="@id/k_flyer_im4"/>
+
+        <TextView
+            android:text="Metro Store"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_flyer_im4"
+            android:layout_toRightOf="@id/k_flyer_im5"/>
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/k_empty"
+            android:id="@+id/k_flyer_im6"
+            android:layout_below="@id/k_flyer_im5"/>
+
+        <TextView
+            android:text="No Frills"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/k_custom_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_flyer_im5"
+            android:layout_toRightOf="@id/k_flyer_im6"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:text="@string/K_NewMenuBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:id="@+id/k_flyerbutton" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/flyer_detail_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/k_screen18"
+        android:layout_weight="3" />
+
+</LinearLayout>

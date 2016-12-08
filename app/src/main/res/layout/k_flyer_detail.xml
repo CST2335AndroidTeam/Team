@@ -1,0 +1,11 @@
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flyer_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/k_screen18"
+    tools:context="com.example.yu.team_project_1.K_FlyerDetailFragment" />
+<!--    style="?android:attr/textAppearanceLarge" -->
+
+
+
