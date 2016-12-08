@@ -86,6 +86,9 @@
     <string name="James">James Automobile</string>
 
     <string name="help">Help</string>
+    <string name="navigation_dialog_title">Where to go?</string>
+    <string name="auto_navigation_ok">GO</string>
+    <string name="light_title">Light</string>
 
     <string-array name="themelist">
         <item>Normal</item>
