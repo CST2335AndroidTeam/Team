@@ -2,20 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/item1"
-        android:title="Choice1"
-        android:icon="@drawable/theme"
+        android:title="@string/garage_door"
+        android:icon="@drawable/garage"
         android:orderInCategory="101"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/item2"
-        android:title="Choice2"
-        android:icon="@drawable/vibrate"
+        android:title="@string/temperature"
+        android:icon="@drawable/temp"
         android:orderInCategory="202"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/item3"
+        android:title="@string/weather"
+        android:icon="@drawable/weather"
+        android:orderInCategory="301"
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/item4"
+        android:title="@string/mainTheme"
+        android:icon="@drawable/theme"
+        android:orderInCategory="402"
+        app:showAsAction="always" />
+
+
+    <item android:id="@+id/item5"
         android:title="@string/about"
-        android:orderInCategory="404"
+        android:orderInCategory="504"
         app:showAsAction="never" />
 
 

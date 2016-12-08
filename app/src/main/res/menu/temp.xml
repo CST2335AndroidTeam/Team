@@ -2,20 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/t1"
-        android:title="Choice1"
+        android:title="@string/temp_sub1"
         android:icon="@drawable/tempsetting"
         android:orderInCategory="101"
         app:showAsAction="always" />
 
     <item android:id="@+id/t2"
-        android:title="Choice2"
-        android:icon="@drawable/vibrate"
+        android:title="@string/temp_sub2"
+        android:icon="@drawable/calender"
         android:orderInCategory="202"
         app:showAsAction="always" />
-
     <item android:id="@+id/t3"
+        android:title="@string/temp_sub3"
+        android:icon="@drawable/camera"
+        android:orderInCategory="302"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/t4"
+        android:title="@string/temp_sub4"
+        android:icon="@drawable/bar"
+        android:orderInCategory="402"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/t5"
         android:title="@string/about"
-        android:orderInCategory="404"
+        android:orderInCategory="504"
         app:showAsAction="never" />
 
 </menu>

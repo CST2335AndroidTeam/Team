@@ -17,11 +17,11 @@ android:orientation="vertical" >
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:layout_weight="1.0"
-        android:text="Bryan Living Room" />
+        android:text="@string/Bryan" />
 
     <Button
         android:id = "@+id/kitchen_button"
-        android:text="Carlos Kitchen"
+        android:text="@string/Carlos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/holo_green_light"
@@ -37,14 +37,16 @@ android:orientation="vertical" >
 
     <Button
         android:id = "@+id/house_setting_button"
-        android:text="Yu House Setting"        android:layout_width="match_parent"
+        android:text="@string/Yu"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1.0"
         android:background="@android:color/holo_blue_light"
-        android:layout_weight="1.0" />
+        />
 
     <Button
         android:id = "@+id/automobile_button"
-        android:text="James Automobile"
+        android:text="@string/James"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/holo_red_light"

@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">How long have you drived?</string>
     <string name="app_name">YM Smart Home</string>
     <string name="house_button">House Settings</string>
@@ -14,11 +13,12 @@
     <string name="garage_door">Garage Door</string>
     <string name="light">Light </string>
 
-    <string name="about">About us</string>
+    <string name="about">About </string>
 
     <string name="ok">Yes</string>
     <string name="cancel">Cancel</string>
-    <string name="title_activity_house_temp">HouseTemp</string>
+    <string name="set">Set</string>
+    <string name="title_activity_house_temp">House Temperature</string>
 
     <string name="zero">0</string>
     <string name="setTemp">Set House Temperature</string>
@@ -26,5 +26,70 @@
     <string name="textDefault">Selected Number Display here</string>
     <string name="title_activity_living__room">Living_Room</string>
 
+    <string name="temp_sub1">CurTempSetting</string>
+    <string name="temp_sub2">ScheduleTemp</string>
+    <string name="temp_sub3">Camera</string>
+    <string name="temp_sub4">Welcome</string>
+    <string name="weather">weather</string>
+    <string name="mainTheme">Theme</string>
 
+    <string name="displayDate">Date: </string>
+
+    <string name="dateDefault">1990/01/01</string>
+    <string name="changeDate">Set Date</string>
+    <string name="displayTime">Time: </string>
+    <string name="timeDefault">00:00</string>
+    <string name="changeTime">Set Time</string>
+    <string name="displayTemp">Temp: </string>
+    <string name="tempDefault">20</string>
+
+    <string name="changeTemp">Set Temp</string>
+    <string name="confirm">Confirm</string>
+    <string name="dateTime">List</string>
+    <string name="title_activity_house_main">House Setting Main</string>
+    <string name="schedule">Schedule Your House Temperature</string>
+    <string name="openDrawer">Open</string>
+    <string name="closeDrawer">Close</string>
+
+    <string name="garageFragment"><![CDATA[
+        <p><h2>Welcome to use Garage interface</h2></p>
+        <p>Instruction:</p>
+        <p>1) Click the toolbar house garage icon to reach control page.</p>
+        <p>2) In the control page, Swipe the garage door or light switch button will control the garage door open/close and light turn on/off.
+         Also, when opening the garage door will turn on the light automatically.</p>
+        <p>3) Swipe the spinner to control brightness of garage light.</p>
+        ]]> </string>
+    <string name="tempFragment"><![CDATA[
+        <p><h2> Welcome to use House Temperature interface</h2></p>
+        <p>Instruction:</p>
+        <p>1) Click the toolbar house temperature icon to reach control page.</p>
+        <p>2) In control page, click top toolbar of temperature icon will reach temperature setting dialog, scroll the numbers to set current
+        house temperature.</p>
+        <p>3) Click top toolbar of schedule icon will reach the schedule setting page, click each button of the set date, set time,and set temperature
+        to set the schedule of the house temperature and click confirm button, the schedule of temperature setting will list in the main page.
+        Click one of the list item will display a dialog that ask to delete this schedule time. Click switch button will allow to turn on/off the this schedule.</p>
+        <p>4) Click the top toolbar camera icon will reach the device camera.</p>
+        <p>5) Click the top toolbar person icon will display the button snackbar information.</p>
+        ]]></string>
+    <string name="weatherFragment"><![CDATA[
+        <p><h2> Welcome to use Weather interface</h2></p>
+        <p>Instruction:</p>
+        <p>1) Click the toolbar house temperature icon to reach control page;</p>
+        <p>2) In control page, it will display the current outside temperature, humidity and wind speed.</p>
+        ]]></string>
+    <string name="detail">Detail</string>
+    <string name="ad_banner_image_description">light on picture</string>
+
+    <string name="Bryan">Bryan Living Room</string>
+    <string name="Carlos">Carlos Kitchen</string>
+    <string name="Yu">Yu House Setting</string>
+    <string name="James">James Automobile</string>
+
+    <string name="help">Help</string>
+
+    <string-array name="themelist">
+        <item>Normal</item>
+        <item>Console</item>
+        <item>Navy</item>
+    </string-array>
 </resources>

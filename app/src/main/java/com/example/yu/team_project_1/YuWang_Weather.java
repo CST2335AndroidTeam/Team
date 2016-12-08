@@ -25,7 +25,13 @@ import java.net.URL;
 import java.util.StringTokenizer;
 
 
-public class Weather extends AppCompatActivity {
+/**
+ * This class is the activity of weather interface
+ *
+ * @author  Yu Wang  2016.12.05
+ * @version 2.2.2
+ */
+public class YuWang_Weather extends AppCompatActivity {
 
     TextView temp;
     TextView humi;
@@ -45,11 +51,17 @@ public class Weather extends AppCompatActivity {
         wind = (TextView)findViewById(R.id.wind_textView);
         weatherImage = (ImageView) findViewById(R.id.weather_imageView);
 
+        //the url that used to download current weather
         String weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=d99666875e0e51521f0040a3d97d0f6a&mode=xml&units=metric";
         WeatherQuery fq = new WeatherQuery();
         fq.execute(weatherURL);
     }
 
+    /**
+     * Get image from the URL
+     * @param url  the url link of the image
+     * @return bitmap from the url link
+     */
     public static Bitmap getImage(URL url) {
         HttpURLConnection connection = null;
         try {
@@ -69,7 +81,9 @@ public class Weather extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * This class helps the Thread and Handler issue and does not constitute a generic threading framework
+     */
     private class WeatherQuery extends AsyncTask<String,Integer,String>{
 
 
@@ -81,6 +95,11 @@ public class Weather extends AppCompatActivity {
 
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
+        /**
+         * This function is where you should be doing any long-lasting computations, network access, file writing,
+         * @param params the array of parameters that user wants to
+         * @return String result that user gets from network
+         */
         @Override
         protected String doInBackground(String... params) {
             String wURL = params[0];
@@ -101,7 +120,7 @@ public class Weather extends AppCompatActivity {
                     parser.nextTag();
 
 
-
+                    //read through xml and gets the value of temperature, humidity and wind
                     while (parser.next() != XmlPullParser.END_DOCUMENT) {
                         if (parser.getEventType() != XmlPullParser.START_TAG) {
                             continue;
@@ -111,6 +130,7 @@ public class Weather extends AppCompatActivity {
                         if (name.equals("temperature")) {
                             temperatureText = parser.getAttributeValue(null, "value");
                             SystemClock.sleep(1000);
+                            // set progress to 25%
                             publishProgress(25);
                         }
                         if(name.equals("humidity")){
@@ -174,7 +194,10 @@ public class Weather extends AppCompatActivity {
         }
 
 
-
+        /**
+         * Updates an progress indicators, or information on your GUI.
+         * @param progress the integer array of process
+         */
         @Override
         protected void onProgressUpdate(Integer... progress) {
             progressBar.setVisibility(View.VISIBLE);
@@ -182,6 +205,10 @@ public class Weather extends AppCompatActivity {
 
         }
 
+        /**
+         * Set the the return string results from doInBackgroud() to the textView
+         * @param result  he exact same object that was returned by doInBackground.
+         */
         @Override
         protected void onPostExecute(String result) {
             String[] separated = result.split(" ");

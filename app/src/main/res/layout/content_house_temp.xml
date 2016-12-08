@@ -11,39 +11,29 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.yu.team_project_1.HouseTemp"
+    tools:context="com.example.yu.team_project_1.YuWang_HouseTemp"
     tools:showIn="@layout/activity_house_temp">
 
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numberPicker1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/textDefault"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center"/>
-
     <TextView
         android:text="@string/zero"
-        android:layout_width="59dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cur_temp"
         android:ems="10"
-        android:textSize="50sp"
+        android:textSize="100sp"
         android:gravity="center"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_alignStart="@+id/numberPicker1"
-        android:layout_marginTop="97dp" />
+        android:layout_marginTop="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/gallery"
+        android:id="@+id/imagePicture"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
