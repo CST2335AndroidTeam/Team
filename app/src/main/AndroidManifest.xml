@@ -53,6 +53,7 @@
         </activity>
         <activity android:name=".K_Edit_List" />
         <activity android:name=".K_Shopping_List" />
+        
     </application>
 
 </manifest>
