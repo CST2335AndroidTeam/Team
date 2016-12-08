@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_living__room" />
+    <include layout="@layout/content_living_room" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
