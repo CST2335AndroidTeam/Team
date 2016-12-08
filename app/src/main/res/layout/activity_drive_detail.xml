@@ -8,11 +8,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.yu.team_project_1.DriveDetailActivity">
+    tools:context="com.example.yu.team_project_1.Auto_DriveDetailActivity">
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fragment_container">
+        android:id="@+id/auto_fragment_container">
     </FrameLayout>
 </RelativeLayout>

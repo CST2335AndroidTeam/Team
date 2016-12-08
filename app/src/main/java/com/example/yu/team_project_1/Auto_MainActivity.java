@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class AutomobileMainActivity extends AppCompatActivity {
+public class Auto_MainActivity extends AppCompatActivity {
     private ListView listview;
 
 
@@ -36,14 +37,19 @@ public class AutomobileMainActivity extends AppCompatActivity {
             "GPS Directions",
             "Lights",
             "Odometer",
-            "Drive" };
+            "Drive"
+    };
 
+    protected boolean isTablet;
     protected ArrayList<String> settingItems = new ArrayList<>(Arrays.asList(settingItemsArr));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile_main);
+
+        isTablet = (findViewById(R.id.auto_setting_container) != null);
+
 
 
         listview = (ListView)findViewById(R.id.automobile_list);
@@ -69,7 +75,12 @@ public class AutomobileMainActivity extends AppCompatActivity {
                     case ODOMETER:
                         break;
                     case DRIVE:
-                        startActivity(new Intent(AutomobileMainActivity.this, DriveDetailActivity.class));
+                        if(isTablet) {
+                            final Auto_DriveFragment driveFragment = new Auto_DriveFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.auto_setting_container, driveFragment).commit();
+                        }else {
+                            startActivity(new Intent(Auto_MainActivity.this, Auto_DriveDetailActivity.class));
+                        }
                         break;
                 }
             }
@@ -94,7 +105,7 @@ public class AutomobileMainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = AutomobileMainActivity.this.getLayoutInflater();
+            LayoutInflater inflater = Auto_MainActivity.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.auto_setting_row, null);
 
             int imageid = 0;

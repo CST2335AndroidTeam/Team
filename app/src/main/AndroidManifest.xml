@@ -23,8 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".YuWang_Garage" />
-        <activity android:name=".AutomobileMainActivity" />
-        <activity android:name=".DriveDetailActivity" />
+        <activity android:name=".Auto_MainActivity" />
+        <activity android:name=".Auto_DriveDetailActivity" />
         <activity
             android:name=".YuWang_HouseTemp"
             android:label="@string/title_activity_house_temp"

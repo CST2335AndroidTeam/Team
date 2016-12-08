@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drive_fragment"
-    tools:context="com.example.yu.team_project_1.DriveFragment">
+    tools:context="com.example.yu.team_project_1.Auto_DriveFragment">
 
     <TextView
         android:layout_width="match_parent"
