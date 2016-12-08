@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yu.team_project_1.YuWang_HouseMainFragment2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/tempFragment"
+        android:textSize="25sp"
+        android:background="@drawable/back1"
+        android:id="@+id/TextTemperature"/>
+
+    <Button
+        android:text="@string/detail"
+        android:textColor="#3F51B5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CheckTemp"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>

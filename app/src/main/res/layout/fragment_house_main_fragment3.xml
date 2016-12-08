@@ -1,0 +1,24 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yu.team_project_1.YuWang_HouseMainFragment3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/weatherFragment"
+        android:textSize="25sp"
+        android:background="@drawable/back4"
+        android:id="@+id/TextWeather"/>
+
+    <Button
+        android:text="@string/detail"
+        android:textColor="#3F51B5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CheckWeather"
+        android:layout_gravity="bottom"/>
+
+
+</FrameLayout>
