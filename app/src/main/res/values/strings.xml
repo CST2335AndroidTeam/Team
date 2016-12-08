@@ -1,6 +1,5 @@
 <resources>
     <string name="hello_blank_fragment">How long have you drived?</string>
-    <string name="app_name">YM Smart Home</string>
     <string name="house_button">House Settings</string>
 
     <string name="temperature">Temperature</string>

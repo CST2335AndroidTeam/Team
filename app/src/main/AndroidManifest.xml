@@ -13,12 +13,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".YuWang_Weather"
-            android:label="weather" />
-        <activity android:name=".MainActivity">
 
-        <!--
+
+
             <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,8 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".YuWang_Garage" />
-        <activity android:name=".AutomobileMainActivity" />
-        <activity android:name=".DriveDetailActivity" />
+        <activity android:name=".Auto_DriveDetailActivity" />
+        <activity android:name=".Auto_LightActivity" />
+        <activity android:name=".Auto_MainActivity"/>
         <activity
             android:name=".YuWang_HouseTemp"
             android:label="@string/title_activity_house_temp"
@@ -66,8 +64,7 @@
         <activity
             android:name=".YuWang_HouseMain"
             android:label="@string/title_activity_house_main" />
-        <activity android:name=".Auto_LightActivity"></activity>
-        -->
+
 
         <activity
             android:name=".KitchensHelper"

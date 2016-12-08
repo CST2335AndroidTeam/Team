@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         kitchenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
-                //start kitchen acitivty
+                startActivity(new Intent(MainActivity.this, KitchensHelper.class));
             }
         });
         houseSettingButton = (Button) findViewById(R.id.house_setting_button);
