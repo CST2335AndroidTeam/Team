@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_one"
+        android:title="@string/living_room"
+        android:icon="@drawable/main_livingroom"
+        android:orderInCategory="101"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_two"
+        android:title="@string/kitchen"
+        android:icon="@drawable/main_kitchen"
+        android:orderInCategory="110"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_three"
+        android:title="@string/house_setting"
+        android:icon="@drawable/main_housesetting"
+        android:orderInCategory="120"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_four"
+        android:title="@string/automobile"
+        android:icon="@drawable/main_car"
+        android:orderInCategory="130"
+        app:showAsAction="ifRoom" />
+
     <item android:id="@+id/helpMain"
         android:title="@string/help"
         android:orderInCategory="504"

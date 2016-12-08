@@ -68,24 +68,39 @@ public class MainActivity extends AppCompatActivity {
     //responds to one of the items being selected
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
-        if(id == R.id.helpMain){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(Group);
-            // Add the buttons
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User clicked OK button
-                }
-            });
-            builder.setMessage("Group member: Byran Mack, Carlos Mena, MoChen Jin, Yu Wang, " +
-                    "\nVersion: 2.2.2\nInstruction: \nYM smart home is an integrated household control application," +
-                    "There are 4 interfaces for this app(each group member makes their own part application): living room(Byran), " +
-                    "kitchen(Carlos), house setting(Yu) and automobile(MoChen).");
+        switch(id){
+            case R.id.action_one:
+                startActivity(new Intent(MainActivity.this, Living_Room.class));
+                break;
 
-            // Create the AlertDialog
-            AlertDialog dialog = builder.create();
-            dialog.show();
+            case R.id.action_two:
+                startActivity(new Intent(MainActivity.this, KitchensHelper.class));
+                break;
+            case R.id.action_three:
+                startActivity(new Intent(MainActivity.this, YuWang_HouseMain.class));
+                break;
+            case R.id.action_four:
+                startActivity(new Intent(MainActivity.this, Auto_MainActivity.class));
+                break;
+            case R.id.helpMain:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(Group);
+                // Add the buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+                builder.setMessage("Group member: Byran Mack, Carlos Mena, MoChen Jin, Yu Wang, " +
+                        "\nVersion: 2.2.2\nInstruction: \nYM smart home is an integrated household control application," +
+                        "There are 4 interfaces for this app(each group member makes their own part application): living room(Byran), " +
+                        "kitchen(Carlos), house setting(Yu) and automobile(MoChen).");
+
+                // Create the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                break;
         }
-        return true;
+        return super.onOptionsItemSelected(mi);
     }
 }

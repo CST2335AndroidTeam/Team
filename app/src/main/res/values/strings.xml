@@ -147,4 +147,8 @@
     <string name="K_D_Help6">Use the buttons to navigate through</string>
     <string name="K_D_Help7">the application</string>
     <string name="K_D_Help8">and have fun!</string>
+    <string name="automobile">Automobile</string>
+    <string name="house_setting">House Setting</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="living_room">Living Room</string>
 </resources>
