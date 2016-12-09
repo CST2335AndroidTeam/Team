@@ -169,7 +169,7 @@ public class Auto_LightFragment extends Fragment {
     }
 
     private void turnOffBeam(){
-        beamOn = true;
+        beamOn = false;
         beamImage.setBackgroundResource(R.drawable.auto_no_beam);
         Snackbar snackbar = Snackbar
                 .make(getView().findViewById(R.id.auto_light_fragment_layout), "Beam light off", Snackbar.LENGTH_SHORT)

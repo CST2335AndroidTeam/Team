@@ -262,6 +262,8 @@ public class Auto_RadioFragment extends Fragment {
             return count;
         }
 
+
+        @Override
         protected void onProgressUpdate(Integer... progress) {
             progressBar.setProgress(progress[0]);
             progressBar.setVisibility(View.VISIBLE);
