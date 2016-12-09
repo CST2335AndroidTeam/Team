@@ -16,9 +16,15 @@ import android.widget.Toast;
 import static com.example.yu.team_project_1.Auto_OdometerFragment.AUTO_PREFERENCE_FILE;
 import static java.lang.Integer.parseInt;
 
-/**
+/**Automobile Drive Fragment, contains a input EditText allowing user to input kilometers, simulating driving.
+ * The distance drived will be added to SharePreference, number added for both "distance"
+ * and "trip_distance"
+ * Also contains a static hidekeyboard method to hide keyboard
+ *
  * hideKeyboard method by 'rmirabelle' from StackOverflow:
  *  http://stackoverflow.com/questions/1109022/close-hide-the-android-soft-keyboard
+ *
+ *  @author  Mochen Jin
  */
 public class Auto_DriveFragment extends Fragment {
 

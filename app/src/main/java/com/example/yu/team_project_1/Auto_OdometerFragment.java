@@ -14,6 +14,11 @@ import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * Automobile Odometer Fragment, contains odometer in TextView and Trip distance,
+ *  also a "reset" button.
+ *  number in odometer and trip distance is from SharedPreference.
+ *  @author Mochen Jin
  */
 public class Auto_OdometerFragment extends Fragment {
 

@@ -5,8 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-/**
- * Created by james on 12/8/2016.
+/** A database helper that create and manipulate the Radio station table
+ *
+ * @author Mochen Jin
  */
 
 public class Auto_DatabaseHelper extends SQLiteOpenHelper {

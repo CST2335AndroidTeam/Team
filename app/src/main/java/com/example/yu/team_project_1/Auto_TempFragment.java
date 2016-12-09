@@ -16,10 +16,17 @@ import android.widget.Toast;
 
 import static com.example.yu.team_project_1.Auto_OdometerFragment.AUTO_PREFERENCE_FILE;
 
-
 /**
  * A simple {@link Fragment} subclass.
+ *
+ * Automobile Temperature Fragment, allowing user to control in-car temperature.
+ * Control temperature in 2 part (front and back) of the car, through NumberPicker
+ * Button color will change (warm = red, cold = blue) when temperature adjusted.
+ * Temperature value is stored in SharedPreference
+ *
+ * @author Mochen Jin
  */
+
 public class Auto_TempFragment extends Fragment {
 
     private NumberPicker front;

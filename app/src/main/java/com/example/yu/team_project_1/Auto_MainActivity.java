@@ -24,6 +24,18 @@ import java.util.Arrays;
 
 import static com.example.yu.team_project_1.Auto_DriveFragment.hideKeyboard;
 
+/**Main class for Automobile section
+ * has 2 panel display for screen size larger than 600dp (width),
+ * different layout for tablet portrait and landscape mode.
+ * Contains a ListView of 6 settings:
+ *      GPS Navigation will pop up dialog and then go to Google navigation intent
+ *      the other 5 will launch corresponding setting Activity or Fragment (depend on screen size)
+ *
+ * Support Chinese interface for most of the pages and functions
+ * an About menu on top right corner, showing instructions.
+ *
+ *  @author Mochen Jin
+ */
 public class Auto_MainActivity extends AppCompatActivity {
     private ListView listview;
     private EditText addressBox;

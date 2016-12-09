@@ -36,10 +36,21 @@ import java.util.Collections;
 import static com.example.yu.team_project_1.Auto_DatabaseHelper.RADIO_KEY;
 import static com.example.yu.team_project_1.Auto_DatabaseHelper.RADIO_TABLE;
 
-/**
- * code for shake sensor from "Morteza Soleimani" on StackOverflow:
+
+/**Automobile Odometer Fragment, allowing user to control in-car radio.
+ * has a list of Favorite Radio stations,
+ * station list linked to database RadioTable.
+ * Show the list in a ListView
+ * When created, will run AsyncTask to load entries from database.
+ * can add, delete, edit the stations, all functions will sync to database.
+ *
+ * Will sort Radio Station List when shaked
+ *
+ *  code for shake sensor from "Morteza Soleimani" on StackOverflow:
  *  http://stackoverflow.com/questions/5271448/how-to-detect-shake-event-with-android
+ * @author Mochen Jin
  */
+
 public class Auto_RadioFragment extends Fragment {
     private ListView radioList;
     private ArrayList<String> stations =new ArrayList<>()  ;

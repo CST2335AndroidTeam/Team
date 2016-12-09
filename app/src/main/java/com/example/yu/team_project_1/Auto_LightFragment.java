@@ -20,7 +20,15 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 
-
+/**Automobile Light Fragment, contain the control to head light and in-car dimmable light.
+ * Toggle button to control the on/off for both lights.
+ * Will pop snack bar when button toggled, snack bar has "UNDO" button.
+ * Switch to control "high beam" on/off.
+ * Seekbar to adjust the lighting for dimmable light.
+ *
+ *
+ * @author Mochen Jin
+ */
 public class Auto_LightFragment extends Fragment {
 
     private ToggleButton beamButton;
@@ -29,6 +37,8 @@ public class Auto_LightFragment extends Fragment {
     private ImageView beamImage;
     private ImageView lightImage;
     private SeekBar seekBar;
+
+    /* UNDO button listeners, in snack bars*/
     private View.OnClickListener onBeamUndoClickListener;
     private View.OnClickListener offBeamUndoClickListener;
     private View.OnClickListener onLightUndoClickListener;
