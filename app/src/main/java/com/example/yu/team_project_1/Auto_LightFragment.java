@@ -51,12 +51,14 @@ public class Auto_LightFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 turnOffBeam();
+                beamButton.setChecked(false);
             }
         };
         offBeamUndoClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnBeam();
+                beamButton.setChecked(true);
             }
         };
 
@@ -64,12 +66,14 @@ public class Auto_LightFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 turnOffLight();
+                lightButton.setChecked(false);
             }
         };
         offLightUndoClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnLight();
+                lightButton.setChecked(true);
             }
         };
     }

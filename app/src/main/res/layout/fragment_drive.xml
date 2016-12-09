@@ -24,17 +24,18 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="enter km"
+            android:hint="@string/enter_km"
             android:layout_weight="100"
             android:layout_gravity="center"
             android:inputType="number"
             style="@style/Widget.AppCompat.EditText"
+            android:id="@+id/auto_input_kilometer"
             android:textSize="30sp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/add_km_button"
-            android:text="Add to Odometer"
+            android:text="@string/add_to_odometer"
             android:layout_weight="100"
             android:layout_gravity="center"
             android:textSize="25sp" />

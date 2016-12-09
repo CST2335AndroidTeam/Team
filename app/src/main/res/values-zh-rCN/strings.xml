@@ -84,6 +84,39 @@
         <item>绿色主题</item>
         <item>蓝色主题</item>
     </string-array>
+    <string name="default_navigation"></string>
+    <string name="destination">目的地：</string>
+    <string name="light_title">车灯</string>
+    <string name="living_room">客厅</string>
+    <string name="navigation_dialog_title">要去哪？</string>
+    <string name="mainTheme">主题</string>
+    <string name="new_station">新电台</string>
+    <string name="auto_navigation_ok">导航</string>
+    <string name="automobile">汽车</string>
+    <string name="car_radio">汽车电台</string>
+    <string name="headlights">车头灯</string>
+    <string name="help">帮助</string>
+    <string name="high_beam">远光</string>
+    <string name="house_setting">房间设置</string>
+    <string name="in_car_light">车内灯</string>
+    <string name="kitchen">厨房</string>
+    <string name="carlos_app_name"></string>
+    <string name="title_flyer_detail"></string>
+    <string name="K_Butt1"></string>
+    <string name="add_to_odometer">添加到里程表</string>
+    <string name="auto_temperature">温度</string>
+    <string name="car_light">车灯</string>
+    <string name="drive">驾驶</string>
+    <string name="enter_km">输入公里</string>
+    <string name="fuel">燃料</string>
+    <string name="gps_direction">导航</string>
+    <string name="odometer">里程表</string>
+    <string name="radio">电台</string>
+    <string name="back_temperature">后方温度</string>
+    <string name="car_temperature">车内温度</string>
+    <string name="front_temperature">前面温度</string>
+    <string name="km">公里</string>
+    <string name="reset">清零</string>
 
 
 </resources>

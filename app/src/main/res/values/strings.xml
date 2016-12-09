@@ -158,4 +158,19 @@
     <string name="in_car_light">in car light</string>
     <string name="new_station">New Radio Station</string>
     <string name="car_radio">Car Radio</string>
+    <string name="auto_temperature">Temperature</string>
+    <string name="fuel">Fuel</string>
+    <string name="radio">Radio</string>
+    <string name="gps_direction">GPS Directions</string>
+    <string name="car_light">Lights</string>
+    <string name="odometer">Odometer</string>
+    <string name="drive">Drive</string>
+    <string name="add_to_odometer">Add to Odometer</string>
+    <string name="enter_km">enter km</string>
+    <string name="km">KM</string>
+    <string name="trip_distance">Trip Distance:</string>
+    <string name="reset">reset trip</string>
+    <string name="car_temperature">Car Temperature</string>
+    <string name="back_temperature">Back Temperature</string>
+    <string name="front_temperature">Front Temperature</string>
 </resources>

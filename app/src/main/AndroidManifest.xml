@@ -101,7 +101,9 @@
         </activity>
         <activity android:name=".K_Edit_List" />
         <activity android:name=".K_Shopping_List" />
-        <activity android:name=".Auto_RadioActivity"></activity>
+        <activity android:name=".Auto_RadioActivity" />
+        <activity android:name=".Auto_OdometerActivity" />
+        <activity android:name=".Auto_TempActivity"></activity>
     </application>
 
 </manifest>

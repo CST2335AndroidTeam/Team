@@ -12,6 +12,7 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -116,6 +117,7 @@ public class Auto_RadioFragment extends Fragment {
         radioList= (ListView) view.findViewById(R.id.auto_radio_listview);
         adapter = new MyRadioAdapter(getActivity());
         radioList.setAdapter(adapter);
+
 
         new LoadDatabase().execute();
         return view;
@@ -298,7 +300,7 @@ public class Auto_RadioFragment extends Fragment {
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
 
-            if (mAccel > 12) {
+            if (mAccel > 6) {
                 Collections.sort(stations);
                 adapter.notifyDataSetChanged();
             }
