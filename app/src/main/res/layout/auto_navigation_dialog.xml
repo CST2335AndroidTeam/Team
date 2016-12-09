@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Destination: "
+        android:text="@string/destination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/auto_dialog_textview"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Algonquin College"
+        android:text="@string/default_navigation"
         android:id="@+id/auto_dialog_address"
         style="@style/Widget.AppCompat.EditText"
         />

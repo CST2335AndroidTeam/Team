@@ -151,4 +151,11 @@
     <string name="house_setting">House Setting</string>
     <string name="kitchen">Kitchen</string>
     <string name="living_room">Living Room</string>
+    <string name="default_navigation">Parliament</string>
+    <string name="destination">Destination:</string>
+    <string name="headlights">headlights</string>
+    <string name="high_beam">High beam</string>
+    <string name="in_car_light">in car light</string>
+    <string name="new_station">New Radio Station</string>
+    <string name="car_radio">Car Radio</string>
 </resources>

@@ -100,7 +100,7 @@ public class Living_Room extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = Living_Room.this.getLayoutInflater();
-            View result = inflater.inflate(R.layout.list_item, null);
+            View result = inflater.inflate(R.layout.auto_list_item, null);
 
             int rowId = 0;
             switch (position) {

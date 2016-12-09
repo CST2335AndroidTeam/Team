@@ -74,14 +74,21 @@ public class Auto_MainActivity extends AppCompatActivity {
                     case FUEL:
                         break;
                     case RADIO:
+                        if(isTablet) {
+                            final Auto_RadioFragment radioFragment = new Auto_RadioFragment();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.auto_setting_container, radioFragment).commit();
+                        }else {
+                            startActivity(new Intent(Auto_MainActivity.this, Auto_RadioActivity.class));
+                        }
                         break;
+
                     case GPS:
                         goToGPS();
                         break;
                     case LIGHT:
                         if(isTablet) {
                             final Auto_LightFragment lightFragment = new Auto_LightFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.auto_setting_container, lightFragment).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.auto_setting_container, lightFragment).commit();
                         }else {
                             startActivity(new Intent(Auto_MainActivity.this, Auto_LightActivity.class));
                         }
@@ -91,7 +98,7 @@ public class Auto_MainActivity extends AppCompatActivity {
                     case DRIVE:
                         if(isTablet) {
                             final Auto_DriveFragment driveFragment = new Auto_DriveFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.auto_setting_container, driveFragment).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.auto_setting_container, driveFragment).commit();
                         }else {
                             startActivity(new Intent(Auto_MainActivity.this, Auto_DriveDetailActivity.class));
                         }
@@ -116,7 +123,7 @@ public class Auto_MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                     }
                 });
