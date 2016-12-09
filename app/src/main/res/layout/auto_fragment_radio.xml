@@ -1,0 +1,52 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yu.team_project_1.Auto_RadioFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/car_radio"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+        <Button
+            android:text="@string/new_station"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/auto_new_station"
+            android:layout_margin="30dp"
+            android:layout_gravity="start"
+            android:background="@color/colorGrey"
+            style="@style/Widget.AppCompat.Button.Colored" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/auto_radio_listview"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/auto_radio_progressbar"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:text="Loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/auto_progress_message"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

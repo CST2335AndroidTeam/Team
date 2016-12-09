@@ -14,16 +14,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title"
-            android:textAlignment="center"
             android:text="@string/light_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:showDividers="middle"
-            android:divider="?android:attr/dividerHorizontal">
+            android:divider="?android:attr/dividerHorizontal"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="headlights"
+                    android:text="@string/headlights"
                     android:layout_margin="10dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
                 <ImageView
@@ -43,13 +43,15 @@
                     android:id="@+id/auto_beam_image"
                     android:layout_margin="10dp"
                     />
+
                 <ToggleButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/auto_beam_onoff_toggle"/>
 
                 <Switch
-                    android:text="High beam"
+                    android:text="@string/high_beam"
                     android:textAlignment="textEnd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -68,7 +70,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="in car light"
+                    android:text="@string/in_car_light"
                     android:layout_margin="10dp"
 
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -83,12 +85,15 @@
                 <ToggleButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/auto_light_onoff_toggle"/>
 
                 <SeekBar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/auto_light_seekbar"/>
+                    android:id="@+id/auto_light_seekbar"
+                    android:layout_marginTop="20dp"
+                    android:thumb="@drawable/light"/>
 
             </LinearLayout>
 

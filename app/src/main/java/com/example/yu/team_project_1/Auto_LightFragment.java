@@ -51,12 +51,14 @@ public class Auto_LightFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 turnOffBeam();
+                beamButton.setChecked(false);
             }
         };
         offBeamUndoClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnBeam();
+                beamButton.setChecked(true);
             }
         };
 
@@ -64,12 +66,14 @@ public class Auto_LightFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 turnOffLight();
+                lightButton.setChecked(false);
             }
         };
         offLightUndoClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnLight();
+                lightButton.setChecked(true);
             }
         };
     }
@@ -169,7 +173,7 @@ public class Auto_LightFragment extends Fragment {
     }
 
     private void turnOffBeam(){
-        beamOn = true;
+        beamOn = false;
         beamImage.setBackgroundResource(R.drawable.auto_no_beam);
         Snackbar snackbar = Snackbar
                 .make(getView().findViewById(R.id.auto_light_fragment_layout), "Beam light off", Snackbar.LENGTH_SHORT)
